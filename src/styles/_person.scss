@@ -1,0 +1,9 @@
+@import '_variables.scss'; //Styling for person
+
+$side: 20px;
+
+.person {
+    border: 1px solid $dark;
+    height: $side;
+    width: $side;
+}

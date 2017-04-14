@@ -1,0 +1,8 @@
+@import '_variables.scss'; //Styling for person
+
+.row {
+    border: 1px solid $dark;
+    display: flex;
+    margin-left: 50px;
+    width: 75%;
+}
