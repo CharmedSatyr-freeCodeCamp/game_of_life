@@ -1,18 +1,27 @@
 import React from 'react';
 
+import Person from './Person.jsx';
+import Field from './Field.jsx';
 import Footer from './Footer.jsx';
-import Row from './Row.jsx';
-import Table from './Table.jsx';
 
 class App extends React.Component {
-
     constructor() {
         super();
+        let num = [];
+        for (let i = 0; i < 100; i++) {
+            num.push(<Person key={i} id={i} population={num}/>);
+        }
         this.state = {
-            people: [1,2,3,10,10,3,2,323,2,2,2,2,2,2,2,2,2,2,2,5,5,5,5,5,5,5,5,23,232,3,23,232,3,23,2,23,23],
-            rows: [1, 2, 3, 5, 6, 12, 3, 44, 53]
+            people: num
         }
     }
+    onClickPerson(e) {
+        this.setState({
+            selected: !this.state.selected
+        })
+
+    }
+
     render() {
         return (
             <div>
@@ -20,7 +29,7 @@ class App extends React.Component {
                     <h1>Hi</h1>
                 </header>
                 <main>
-                    <Table people ={this.state.people} rows={this.state.rows}/>
+                    <Field people={this.state.people}/>
                 </main>
                 <Footer/>
             </div>
