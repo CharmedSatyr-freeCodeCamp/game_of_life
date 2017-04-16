@@ -4,9 +4,9 @@
     border: 1px solid $dark;
     height: $person-side;
     width: $person-side;
-    background: $gray;
+    background: $dead;
 }
 
-.person.active {
-    background: $teal;
+.person.alive {
+    background: $alive;
 }

@@ -2,11 +2,11 @@ import React from 'react';
 
 import Person from './Person.jsx';
 import Field from './Field.jsx';
-import Footer from './Footer.jsx';
+import $ from 'jquery';
 
 class App extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         let num = [];
         for (let i = 0; i < 100; i++) {
             num.push(<Person key={i} id={i} population={num}/>);
@@ -15,23 +15,19 @@ class App extends React.Component {
             people: num
         }
     }
-    onClickPerson(e) {
-        this.setState({
-            selected: !this.state.selected
-        })
-
-    }
-
     render() {
         return (
             <div>
                 <header>
-                    <h1>Hi</h1>
+                    <h1>John Conway's Game of Life</h1>
                 </header>
                 <main>
                     <Field people={this.state.people}/>
                 </main>
-                <Footer/>
+                <footer>
+                    Coded by
+                    <a href='https://charmedsatyr.com/' target='_blank'>CharmedSatyr</a>
+                </footer>
             </div>
         )
     }
