@@ -3,11 +3,10 @@ import $ from 'jquery';
 
 let events = {};
 
-setInterval(() => { //This is how often generations progress
-    console.log('Boom!')
+setInterval(() => {
     $(events).trigger('calculateNext');
     $(events).trigger('renderNext');
-}, 1000);
+}, 5000);
 
 class Person extends React.Component {
     constructor(props) {
@@ -16,6 +15,10 @@ class Person extends React.Component {
             alive: false,
             nextState: false
         }
+    }
+    timer() {
+        setInterval(this.calculateNext(), 2000)
+        setInterval(this.renderNext(), 2000);
     }
     isSelected(row, column) { //This is a function passed row and column inputs from calculateNext
         //Makes the world round
@@ -43,7 +46,7 @@ class Person extends React.Component {
         let colPosition = this.props.id - rowPosition * fieldSide; //For id = 9, 9 - (0*10) = column 9. For id = 10, 10 - (1*10) = column 0.
         //console.log('Hi, I\'m on row ' + rowPosition + ' and column ' + colPosition + '. Alive? ' + this.state.alive);
 
-        //Detects how many living neighboring people each person has 
+        //Detects how many living neighboring people each person has
         if (this.isSelected(rowPosition - 1, colPosition))
             neighborsAlive += 1
         if (this.isSelected(rowPosition - 1, colPosition + 1))
@@ -70,14 +73,12 @@ class Person extends React.Component {
                 this.state.nextState = false;
             if (neighborsAlive > 3)
                 this.state.nextState = false;
-            if (neighborsAlive == 3 || neighborsAlive == 2)
+            if (neighborsAlive === 2 || neighborsAlive === 3)
                 this.state.nextState = true;
             }
-        else {
-            if (neighborsAlive == 3)
-                this.state.nextState = true;
-            }
-
+        else if (neighborsAlive == 3) {
+            this.state.nextState = true;
+        }
     }
     renderNext() {
         this.setState({alive: this.state.nextState});

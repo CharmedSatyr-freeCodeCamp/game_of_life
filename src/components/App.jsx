@@ -2,6 +2,7 @@ import React from 'react';
 
 import Person from './Person.jsx';
 import Field from './Field.jsx';
+import Controls from './Controls.jsx';
 import $ from 'jquery';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
                 </header>
                 <main>
                     <Field people={this.state.people}/>
+                    <Controls/>
                 </main>
                 <footer>
                     Coded by
