@@ -1,13 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 
-let events = {};
-
-setInterval(() => {
-    $(events).trigger('calculateNext');
-    $(events).trigger('renderNext');
-}, 5000);
-
 class Person extends React.Component {
     constructor(props) {
         super(props);
@@ -15,10 +8,6 @@ class Person extends React.Component {
             alive: false,
             nextState: false
         }
-    }
-    timer() {
-        setInterval(this.calculateNext(), 2000)
-        setInterval(this.renderNext(), 2000);
     }
     isSelected(row, column) { //This is a function passed row and column inputs from calculateNext
         //Makes the world round
@@ -85,8 +74,8 @@ class Person extends React.Component {
     }
     componentDidMount() {
         this.props.population[this.props.id] = this;
-        $(events).on("calculateNext", this.calculateNext.bind(this));
-        $(events).on('renderNext', this.renderNext.bind(this));
+        $(this.props.events).on("calculateNext", this.calculateNext.bind(this));
+        $(this.props.events).on('renderNext', this.renderNext.bind(this));
     }
     onClick(e) {
         e.preventDefault();

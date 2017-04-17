@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Controls = () => (
+const Controls = ({onClickStart, onClickPause}) => (
     <div>
-        <button>Start</button>
-        <button>Pause</button>
+        <button onClick={onClickStart}>Start</button>
+        <button onClick={onClickPause}>Pause</button>
         <button>Random</button>
     </div>
 );
