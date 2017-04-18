@@ -9,58 +9,36 @@ import $ from 'jquery';
 let timer,
   events = {},
   num = [],
-  alive = false,
-  generationsCount;
+  alive;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      people: num,
-      generationsCount: generationsCount = 0
+      people: num
     }
-  }
-  componentWillMount() {
     for (let i = 0; i < 100; i++) {
-      alive = Math.round(Math.random()) === 1
-        ? true
-        : false;
-      num.push(<Person key={i} id={i} population={num} events={events} alive={alive}/>);
+      num.push(<Person key={i} id={i} population={num} events={events} alive={false}/>);
     }
+
   }
   onClickStart() {
-    this.setState({
-      generationsCount: generationsCount++ //This seems to be necessary on first start but not on resuming
-    });
     timer = setInterval(() => {
       $(events).trigger('calculateNext');
       $(events).trigger('renderNext');
-      this.setState({
-        generationsCount: generationsCount++
-      });
-    }, 500);
-  }
-  onClickResume() {
-    timer = setInterval(() => {
-      $(events).trigger('calculateNext');
-      $(events).trigger('renderNext');
-      this.setState({
-        generationsCount: generationsCount++
-      });
     }, 500);
   }
   onClickPause() {
     clearInterval(timer);
   }
   onClickRandom() {
-    console.log('lol so random');
+    $(events).trigger('randomize');
+    clearInterval(timer);
   }
   onClickClear() {
-    console.log('Clear!');
-    this.setState({
-      generationsCount: generationsCount = 0
-    })
+    $(events).trigger('kill');
+    clearInterval(timer);
   }
   render() {
     return (
@@ -69,9 +47,8 @@ class App extends React.Component {
           <h1>John Conway's Game of Life</h1>
         </header>
         <main>
-          <Generations generationsCount={this.state.generationsCount}/>
           <Field people={this.state.people}/>
-          <Controls onClickStart={this.onClickStart.bind(this)} onClickResume={this.onClickResume.bind(this)} onClickPause={this.onClickPause.bind(this)} onClickRandom={this.onClickRandom.bind(this)} onClickClear={this.onClickClear.bind(this)}/>
+          <Controls onClickStart={this.onClickStart.bind(this)} onClickPause={this.onClickPause.bind(this)} onClickRandom={this.onClickRandom.bind(this)} onClickClear={this.onClickClear.bind(this)}/>
         </main>
         <br/>
         <footer>
