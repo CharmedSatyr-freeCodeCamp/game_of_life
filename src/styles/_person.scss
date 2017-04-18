@@ -1,12 +1,48 @@
 @import '_variables.scss'; //Styling for person
 
 .person {
-    border: 1px solid $dark;
-    height: $person-side;
-    width: $person-side;
-    background: $dead;
+  border: 1px solid $medium;
+  height: $person-side;
+  width: $person-side;
+  background-color: $dead;
 }
 
-.person.alive {
-    background: $alive;
+.alive {
+  @include accent(0.1);
+}
+
+.child {
+  @include accent(0.2);
+}
+
+.teen {
+  @include accent(0.3);
+}
+
+.adult {
+  @include accent(0.4);
+}
+
+.middle {
+  @include accent(0.5);
+}
+
+.advanced {
+  @include accent(0.6);
+}
+
+.elder {
+  @include accent(0.7);
+}
+
+.royalty {
+  @include accent(0.8);
+}
+
+.legend {
+  @include accent(0.9);
+}
+
+.deity {
+  @include accent(1.0);
 }

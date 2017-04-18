@@ -1,11 +1,14 @@
 @import '_field.scss';
 @import '_person.scss';
 @import '_variables.scss';
-
 /* Body Styling */
 body {
-    background-color: $dark;
+  background: $medium radial-gradient(rgba(15, 252, 208, 0.2), $dark);
+  color: $light;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  text-align: center;
+  a {
     color: $light;
-    text-align: center;
-    overflow-x: hidden;
+  }
 }

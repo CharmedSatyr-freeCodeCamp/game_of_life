@@ -27,7 +27,7 @@ class App extends React.Component {
     timer = setInterval(() => {
       $(events).trigger('calculateNext');
       $(events).trigger('renderNext');
-    }, 500);
+    }, 200);
   }
   onClickPause() {
     clearInterval(timer);

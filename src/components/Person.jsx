@@ -6,19 +6,23 @@ class Person extends React.Component {
     super(props);
     this.state = {
       alive: this.props.alive,
-      nextState: false
+      nextState: false,
+      age: 0
     }
   }
   randomize() {
     let alive = Math.round(Math.random()) === 1
       ? true
       : false;
-    this.setState({alive: alive});
+    (alive)
+      ? this.setState({alive: alive, age: 1})
+      : this.setState({alive: alive, age: 0});
     this.calculateNext.bind(this)
     this.renderNext.bind(this);
   }
   kill() {
-    this.setState({alive: false});
+    this.setState({alive: false, nextState: false, age: 0});
+    this.calculateNext.bind(this)
     this.renderNext.bind(this);
   }
   isSelected(row, column) { //This is a function passed row and column inputs from calculateNext
@@ -68,17 +72,48 @@ class Person extends React.Component {
       neighborsAlive += 1
 
       //Apply Conway's rules for The Game of Life
-    this.state.nextState = false;
     if (this.state.alive) {
       if (neighborsAlive < 2)
-        this.state.nextState = false;
+        this.setState({nextState: false, age: 0});
       if (neighborsAlive > 3)
-        this.state.nextState = false;
-      if (neighborsAlive === 2 || neighborsAlive === 3)
-        this.state.nextState = true;
+        this.setState({nextState: false, age: 0});
+
+      if (neighborsAlive === 2 || neighborsAlive === 3) {
+        switch (this.state.age) {
+          case 1:
+            this.setState({nextState: true, age: 2});
+            break;
+          case 2:
+            this.setState({nextState: true, age: 3});
+            break;
+          case 3:
+            this.setState({nextState: true, age: 4});
+            break;
+          case 4:
+            this.setState({nextState: true, age: 5});
+            break;
+          case 5:
+            this.setState({nextState: true, age: 6});
+            break;
+          case 6:
+            this.setState({nextState: true, age: 7});
+            break;
+          case 7:
+            this.setState({nextState: true, age: 8});
+            break;
+          case 8:
+            this.setState({nextState: true, age: 9});
+            break;
+          case 9:
+            this.setState({nextState: true, age: 10});
+            break;
+          default:
+            this.setState({nextState: true, age: 10});
+        }
       }
-    else if (neighborsAlive == 3) {
-      this.state.nextState = true;
+
+    } else if (neighborsAlive == 3) {
+      this.setState({nextState: true, age: 1});
     }
   }
   renderNext() {
@@ -91,16 +126,57 @@ class Person extends React.Component {
     $(this.props.events).on('kill', this.kill.bind(this));
     $(this.props.events).on('randomize', this.randomize.bind(this));
   }
+  color() {
+
+    switch (this.state.age) {
+      case 0:
+        return 'person'
+        break;
+      case 1:
+        return 'person alive'
+        break;
+      case 2:
+        return 'person child'
+        break;
+      case 3:
+        return 'person teen'
+        break;
+      case 4:
+        return 'person adult'
+        break;
+      case 5:
+        return 'person middle'
+        break;
+      case 6:
+        return 'person advanced'
+        break;
+      case 7:
+        return 'person elder'
+        break;
+      case 8:
+        return 'person royalty'
+        break;
+      case 9:
+        return 'person legend'
+        break;
+      case 10:
+        return 'person deity'
+        break;
+      default:
+        return 'person'
+    }
+  }
   onClick(e) {
     e.preventDefault();
+    this.state.alive
+      ? this.setState({age: 0})
+      : this.setState({age: 1});
     this.setState({
       alive: !this.state.alive
     })
   }
   render() {
-    return (<div className={this.state.alive
-      ? 'person alive'
-      : 'person'} onClick={this.onClick.bind(this)}/>);
+    return (<div className={this.color()} onClick={this.onClick.bind(this)}/>);
   }
 }
 export default Person;

@@ -2,7 +2,8 @@
 
 #field {
     background: $dark;
-    border: solid black 1px;
+    border: solid $dark 10px;
+    border-radius: 4px;
     width: $field-side;
     height: $field-side;
     display: flex;
