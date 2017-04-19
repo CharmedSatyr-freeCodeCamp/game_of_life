@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Panel from './Panel.jsx';
 import Person from './Person.jsx';
 import Field from './Field.jsx';
 import Generations from './Generations.jsx';
@@ -16,12 +17,17 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      people: num
+      people: num,
+      cols: 80 //Check _variables.scss width for value
     }
-    for (let i = 0; i < 100; i++) {
-      num.push(<Person key={i} id={i} population={num} events={events} alive={false}/>);
+    for (let i = 0; i < 4000; i++) { //Check _variables.scss for i
+      num.push(<Person key={i} id={i} population={num} events={events} cols={this.state.cols}/>);
     }
 
+  }
+  componentDidMount() {
+    this.onClickRandom();
+    this.onClickStart();
   }
   onClickStart() {
     timer = setInterval(() => {
@@ -42,21 +48,15 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        <header>
-          <h1>John Conway's Game of Life</h1>
-        </header>
         <main>
-          <Field people={this.state.people}/>
-          <Controls onClickStart={this.onClickStart.bind(this)} onClickPause={this.onClickPause.bind(this)} onClickRandom={this.onClickRandom.bind(this)} onClickClear={this.onClickClear.bind(this)}/>
+          <Panel/>
+          <div className='right'>
+            <Field people={this.state.people}/>
+            <Controls onClickStart={this.onClickStart.bind(this)} onClickPause={this.onClickPause.bind(this)} onClickRandom={this.onClickRandom.bind(this)} onClickClear={this.onClickClear.bind(this)}/>
+          </div>
         </main>
-        <br/>
-        <footer>
-          Coded by&nbsp;
-          <a href='https://charmedsatyr.com/' target='_blank'>CharmedSatyr</a>
-        </footer>
-      </div>
     )
   }
 }
+//
 export default App;

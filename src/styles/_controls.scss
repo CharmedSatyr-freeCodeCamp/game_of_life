@@ -1,0 +1,18 @@
+@import '_variables.scss';
+
+.controls {
+  margin: 1px;
+  padding: 1px;
+  button {
+    background: $darker;
+    border: 1px solid $darker;
+    border-radius: 4px;
+    color: $accent;
+    font-family: 'Raleway', sans-serif;
+    margin: 2px;
+    padding: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

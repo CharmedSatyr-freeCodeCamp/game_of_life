@@ -1,14 +1,41 @@
+@import '_controls.scss';
 @import '_field.scss';
+@import '_generations.scss';
+@import '_panel.scss';
 @import '_person.scss';
 @import '_variables.scss';
+
 /* Body Styling */
 body {
-  background: $medium radial-gradient(rgba(15, 252, 208, 0.2), $dark);
+  background: $medium;
   color: $light;
-  font-family: sans-serif;
-  overflow-x: hidden;
+  font-family: 'Raleway', sans-serif;
+  height: 100vh;
+  overflow: hidden;
   text-align: center;
+
   a {
-    color: $light;
+    color: $accent;
+    text-decoration: none;
   }
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.right {
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  margin-left: 20px;
+  padding: 0;
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 60vw;
 }

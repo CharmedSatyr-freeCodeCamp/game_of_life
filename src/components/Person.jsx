@@ -5,7 +5,7 @@ class Person extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      alive: this.props.alive,
+      alive: false,
       nextState: false,
       age: 0
     }
@@ -27,39 +27,42 @@ class Person extends React.Component {
   }
   isSelected(row, column) { //This is a function passed row and column inputs from calculateNext
     //Makes the world round
-    let fieldSide = Math.sqrt(this.props.population.length); //Same as in calculateNext
-    if (row == -1)
-      row = fieldSide - 1;
-    if (row == fieldSide)
+    let cols = this.props.cols;
+    let rows = this.props.population.length/cols;
+
+    if (row === -1)
+      row = rows - 1;
+    if (row === rows)
       row = 0;
 
-    if (column == -1)
-      column = fieldSide - 1;
-    if (column == fieldSide)
+    if (column === -1)
+      column = cols - 1;
+    if (column === cols)
       column = 0;
 
-    let id = row * fieldSide + column;
+    let id = row * cols + column; //id adjusted for wrap
+
     //Simply returns whether the neighbor is alive
     return this.props.population[id].state.alive;
   }
   calculateNext() {
-    //These calculations only work if population = 100
-    //With different CSS, they can be accurate for other populations
     let neighborsAlive = 0;
-    let fieldSide = Math.sqrt(this.props.population.length); //Same as in isSelected
-    let rowPosition = Math.floor(this.props.id / fieldSide); //Assuming there's fieldSide people on each row, an id of 9 would be on row 0, and 10 would be on row 1
-    let colPosition = this.props.id - rowPosition * fieldSide; //For id = 9, 9 - (0*10) = column 9. For id = 10, 10 - (1*10) = column 0.
-    //console.log('Hi, I\'m on row ' + rowPosition + ' and column ' + colPosition + '. Alive? ' + this.state.alive);
+    let cols = this.props.cols; //Number of columns based on CSS.
+    //Number of rows is this.props.population.length/cols
+
+    let rowPosition = Math.floor(this.props.id / cols);
+    let colPosition = this.props.id - (rowPosition * cols); //colPosition is id - how many to push it out of the way on its row
+    //console.log('Hi, I\'m person ' + this.props.id + ', on row ' + rowPosition + ' and column ' + colPosition + '. Alive? ' + this.state.alive);
 
     //Detects how many living neighboring people each person has
-    if (this.isSelected(rowPosition - 1, colPosition))
+    if (this.isSelected(rowPosition - 1, colPosition)) //Directly above
       neighborsAlive += 1
-    if (this.isSelected(rowPosition - 1, colPosition + 1))
+    if (this.isSelected(rowPosition - 1, colPosition + 1)) //Diagonal top right
       neighborsAlive += 1
-    if (this.isSelected(rowPosition - 1, colPosition - 1))
+    if (this.isSelected(rowPosition - 1, colPosition - 1)) //Diagonal top left
       neighborsAlive += 1
 
-    if (this.isSelected(rowPosition, colPosition + 1))
+    if (this.isSelected(rowPosition, colPosition + 1)) //Etc.
       neighborsAlive += 1
     if (this.isSelected(rowPosition, colPosition - 1))
       neighborsAlive += 1
@@ -120,7 +123,7 @@ class Person extends React.Component {
     this.setState({alive: this.state.nextState});
   }
   componentDidMount() {
-    this.props.population[this.props.id] = this;
+    this.props.population[this.props.id] = this; //This line doesn't seem to be possible. Log it to see why.
     $(this.props.events).on("calculateNext", this.calculateNext.bind(this));
     $(this.props.events).on('renderNext', this.renderNext.bind(this));
     $(this.props.events).on('kill', this.kill.bind(this));

@@ -1,48 +1,48 @@
 @import '_variables.scss'; //Styling for person
 
 .person {
-  border: 1px solid $medium;
+  border: $person-border;
   height: $person-side;
   width: $person-side;
   background-color: $dead;
 }
 
 .alive {
-  @include accent(0.1);
+  @include accent-bg(0.1);
 }
 
 .child {
-  @include accent(0.2);
+  @include accent-bg(0.2);
 }
 
 .teen {
-  @include accent(0.3);
+  @include accent-bg(0.3);
 }
 
 .adult {
-  @include accent(0.4);
+  @include accent-bg(0.4);
 }
 
 .middle {
-  @include accent(0.5);
+  @include accent-bg(0.5);
 }
 
 .advanced {
-  @include accent(0.6);
+  @include accent-bg(0.6);
 }
 
 .elder {
-  @include accent(0.7);
+  @include accent-bg(0.7);
 }
 
 .royalty {
-  @include accent(0.8);
+  @include accent-bg(0.8);
 }
 
 .legend {
-  @include accent(0.9);
+  @include accent-bg(0.9);
 }
 
 .deity {
-  @include accent(1.0);
+  @include accent-bg(1.0);
 }

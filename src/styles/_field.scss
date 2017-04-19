@@ -1,14 +1,14 @@
 @import '_variables.scss';
 
 #field {
-    background: $dark;
-    border: solid $dark 10px;
-    border-radius: 4px;
-    width: $field-side;
-    height: $field-side;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+  align-items: center;
+  background: $dark;
+  border: solid $darker 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+  height: $field-height;
+  justify-content: center;
+  width: $field-width;
 }

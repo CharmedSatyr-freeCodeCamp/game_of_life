@@ -1,12 +1,24 @@
 /* Color variable declarations */
-$dark: #0f0f0f;
-$medium: #606060;
-$light: rgba(250, 250, 250, 0.9);
+$darker: #08080E; //rgba(5, 5, 12, 0.9);
+$dark: #24242A; //rgba(5, 5, 12, 0.6);
+$darkish: rgba(25, 25, 40, 0.8);
+$medium: #cccbc9;
+$lightish: rgba(247, 247, 255, 0.8); //only in panel credit
+$light: rgba(247, 247, 255, 1.0);
 
-@mixin accent($y) {
-  background: rgba(15, 252, 208, $y);
+$accent: rgb(251, 247, 0);
+@mixin accent-bg($y) {
+  background: rgba(251, 247, 0, $y);
 }
 $dead: $dark;
 
-$person-side: 38.65px;
-$field-side: 400px;
+
+//Dimensions: 50tall x 80wide => 4000 squares
+$height: 50;
+$width: 80;
+
+$bw: 1px;
+$person-border: $bw solid $darkish;
+$person-side: 7px;
+$field-height: $height * ($person-side + $bw * 1.33);
+$field-width: $width * ($person-side + $bw * 1.334);
