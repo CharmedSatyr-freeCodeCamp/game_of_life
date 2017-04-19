@@ -1,24 +1,22 @@
-/* Color variable declarations */
-$darker: #08080E; //rgba(5, 5, 12, 0.9);
-$dark: #24242A; //rgba(5, 5, 12, 0.6);
-$darkish: rgba(25, 25, 40, 0.8);
-$medium: #cccbc9;
-$lightish: rgba(247, 247, 255, 0.8); //only in panel credit
-$light: rgba(247, 247, 255, 1.0);
+/* Colors */
+$accent: #fbf700; //rgb(251, 247, 0);
+$dead-cell: #24242A; //rgba(5, 5, 12, 0.6);
+$gridlines: #1B1B28;
+$light-text: #f7f7ff;
+$subtext: #cccbc9;
 
-$accent: rgb(251, 247, 0);
+$main-background: #7c7c87;
+
+$dark-general: #08080E;
 @mixin accent-bg($y) {
   background: rgba(251, 247, 0, $y);
 }
-$dead: $dark;
 
+/* Dimensions: 50tall x 80wide => 4000 squares */
+$cells-tall: 50;
+$cells-wide: 80;
 
-//Dimensions: 50tall x 80wide => 4000 squares
-$height: 50;
-$width: 80;
-
-$bw: 1px;
-$person-border: $bw solid $darkish;
-$person-side: 7px;
-$field-height: $height * ($person-side + $bw * 1.33);
-$field-width: $width * ($person-side + $bw * 1.334);
+$cell-border: 1px solid $gridlines;
+$cell-side: 7px;
+$field-height: $cells-tall * ($cell-side + 1.334);
+$field-width: $cells-wide * ($cell-side + 1.334);

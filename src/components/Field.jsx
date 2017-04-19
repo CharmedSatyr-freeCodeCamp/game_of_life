@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Field = ({people}) => (
+const Field = ({cells}) => (
     <div id='field'>
-        {people}
+        {cells}
     </div>
 );
 

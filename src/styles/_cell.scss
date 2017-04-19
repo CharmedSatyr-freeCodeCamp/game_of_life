@@ -1,10 +1,10 @@
-@import '_variables.scss'; //Styling for person
+@import '_variables.scss';
 
-.person {
-  border: $person-border;
-  height: $person-side;
-  width: $person-side;
-  background-color: $dead;
+.cell {
+  background-color: $dead-cell;
+  border: $cell-border;
+  height: $cell-side;
+  width: $cell-side;
 }
 
 .alive {
@@ -35,7 +35,7 @@
   @include accent-bg(0.7);
 }
 
-.royalty {
+.monarch {
   @include accent-bg(0.8);
 }
 

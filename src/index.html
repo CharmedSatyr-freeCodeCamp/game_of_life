@@ -2,33 +2,68 @@
 <html>
 
 	<head>
-		<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' />
-		<meta charset="UTF-8" />
-		<meta name='theme-color' content='#08080e'>
-		<title>Conway's Game of Life</title>
-		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	</head>
+		<title>The Game of Life
+		</title>
 
-	<body>
-		<noscript style='
-		background: #ffd338;
-		border-top: 2px solid #202020;
-	  border-bottom: 2px solid #202020;
-	  color: #202020;
-	  font-size: 125%;
-	  font-weight: 800;
-	  font-family: sans-serif;
-	  left: 0;
-	  padding: 2px;
-	  position: absolute;
-	  text-align: center;
-	  text-shadow: none;
-	  top: 0;
-	  width: 100%;
-	  z-index: 10;'>Please enable JavaScript. This site will not function properly without it.</noscript>
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta charset="UTF-8" />
+			<meta name='theme-color' content='#08080e'>
+			<title>Conway's Game of Life</title>
+			<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+		</head>
 
-
-		<div id='app' />
-	</body>
+		<body>
+			<noscript style='
+background: #ffd338;
+border-top: 2px solid #202020;
+border-bottom: 2px solid #202020;
+color: #202020;
+font-size: 125%;
+font-weight: 800;
+font-family: sans-serif;
+left: 0;
+padding: 2px;
+position: absolute;
+text-align: center;
+text-shadow: none;
+top: 0;
+width: 100%;
+z-index: 10;'>Please enable JavaScript. This site will not function properly without it.</noscript>
+			<header>
+				<h1>John Conway's Game of Life</h1>
+				<h4>a zero-player cellular automaton</h4>
+			</header>
+			<main>
+				<aside class='panel-left'>
+					<h3>Rules</h3>
+					<ol>
+						<li>
+							Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
+						</li>
+						<li>
+							Any live cell with two or three live neighbours lives on to the next generation.
+						</li>
+						<li>
+							Any live cell with more than three live neighbours dies, as if by overpopulation.
+						</li>
+						<li>
+							Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+						</li>
+					</ol>
+					<h4>Learn more <a rel='noopener' href='https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life' target='_blank'>here</a>.</h4>
+				</aside>
+				<div class='panel-right'>
+					<div id='app' />
+				</div>
+			</main>
+			<footer>
+				<h5>
+        Designed and built by&nbsp;
+        <a rel='noopener' href='https://CharmedSatyr.com'>CharmedSatyr</a>.&nbsp;Source code available under&nbsp;
+				<a rel='noopener' href='https://github.com/CharmedSatyr/game_of_life/blob/master/LICENSE' target='_blank'>GNU Public License v3.0</a>.
+      </h5>
+			</footer>
+		</body>
 
 </html>

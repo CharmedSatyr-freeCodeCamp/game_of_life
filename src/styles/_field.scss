@@ -2,12 +2,11 @@
 
 #field {
   align-items: center;
-  background: $dark;
-  border: solid $darker 10px;
+  background: $dead-cell;
+  border: solid $dark-general 10px;
   border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
-  float: right;
   height: $field-height;
   justify-content: center;
   width: $field-width;

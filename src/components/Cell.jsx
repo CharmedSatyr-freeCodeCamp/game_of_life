@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-class Person extends React.Component {
+class Cell extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,9 +52,9 @@ class Person extends React.Component {
 
     let rowPosition = Math.floor(this.props.id / cols);
     let colPosition = this.props.id - (rowPosition * cols); //colPosition is id - how many to push it out of the way on its row
-    //console.log('Hi, I\'m person ' + this.props.id + ', on row ' + rowPosition + ' and column ' + colPosition + '. Alive? ' + this.state.alive);
+    //console.log('Hi, I\'m cell ' + this.props.id + ', on row ' + rowPosition + ' and column ' + colPosition + '. Alive? ' + this.state.alive);
 
-    //Detects how many living neighboring people each person has
+    //Detects how many living neighboring people each cell has
     if (this.isSelected(rowPosition - 1, colPosition)) //Directly above
       neighborsAlive += 1
     if (this.isSelected(rowPosition - 1, colPosition + 1)) //Diagonal top right
@@ -133,40 +133,40 @@ class Person extends React.Component {
 
     switch (this.state.age) {
       case 0:
-        return 'person'
+        return 'cell'
         break;
       case 1:
-        return 'person alive'
+        return 'cell alive'
         break;
       case 2:
-        return 'person child'
+        return 'cell child'
         break;
       case 3:
-        return 'person teen'
+        return 'cell teen'
         break;
       case 4:
-        return 'person adult'
+        return 'cell adult'
         break;
       case 5:
-        return 'person middle'
+        return 'cell middle'
         break;
       case 6:
-        return 'person advanced'
+        return 'cell advanced'
         break;
       case 7:
-        return 'person elder'
+        return 'cell elder'
         break;
       case 8:
-        return 'person royalty'
+        return 'cell monarch'
         break;
       case 9:
-        return 'person legend'
+        return 'cell legend'
         break;
       case 10:
-        return 'person deity'
+        return 'cell deity'
         break;
       default:
-        return 'person'
+        return 'cell'
     }
   }
   onClick(e) {
@@ -182,4 +182,4 @@ class Person extends React.Component {
     return (<div className={this.color()} onClick={this.onClick.bind(this)}/>);
   }
 }
-export default Person;
+export default Cell;

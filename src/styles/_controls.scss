@@ -1,16 +1,17 @@
 @import '_variables.scss';
 
 .controls {
-  margin: 1px;
-  padding: 1px;
+  float: left;
   button {
-    background: $darker;
-    border: 1px solid $darker;
+    background: $dark-general;
+    border: 1px solid $dark-general;
     border-radius: 4px;
-    color: $accent;
+    color: $light-text;
     font-family: 'Raleway', sans-serif;
-    margin: 2px;
-    padding: 5px;
+    margin-right: 3px;
+    margin-top: 3px;
+    padding: 7px;
+
     &:hover {
       cursor: pointer;
     }
