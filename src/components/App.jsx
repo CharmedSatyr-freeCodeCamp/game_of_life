@@ -39,7 +39,7 @@ class App extends React.Component {
         generationsCount: ++this.state.generationsCount
       });
       */
-    }, 500);
+    }, 100);
   }
   onClickPause() {
     clearInterval(timer);
