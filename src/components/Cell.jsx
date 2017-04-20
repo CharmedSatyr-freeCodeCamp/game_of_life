@@ -11,7 +11,7 @@ class Cell extends React.Component {
     }
   }
   randomize() {
-    let alive = Math.round(Math.random()) === 1
+    let alive = Math.random() >= 0.6 //cells have a 40% chance of being alive
       ? true
       : false;
     (alive)
