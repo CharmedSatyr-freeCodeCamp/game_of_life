@@ -2,6 +2,8 @@
 
 .controls {
   float: left;
+  margin-top: 3px;
+
   button {
     background: $dark-general;
     border: 1px solid $dark-general;
@@ -9,7 +11,7 @@
     color: $light-text;
     font-family: 'Raleway', sans-serif;
     margin-right: 3px;
-    margin-top: 3px;
+    margin-top: 0;
     padding: 7px;
 
     &:hover {
