@@ -1,6 +1,6 @@
 # **The Game of Life**
 ### **"Build the Game of Life"** is a project required for freeCodeCamp's Data Visualization Certification: https://www.freecodecamp.com/challenges/build-the-game-of-life
-#### **Project Completed**: N/A
+#### **Project Completed**: April 20, 2017
 
 1. **Objective**: Build a [CodePen.io]('https://codepen.io') app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/reGdqx/.
 
