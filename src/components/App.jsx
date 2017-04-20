@@ -8,21 +8,21 @@ import Cell from './Cell.jsx';
 
 let timer,
   events = {},
-  num = [];
+  cellArr = [],
+  cellNum = 4000, //Must match _variables.scss value for cells-tall * cells-wide
+  colNum = 80; //Must match _variables.scss val for for cells-wide
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      cells: num,
-      cols: 80, //Check _variables.scss for value
-      generationsCount: 0
+      generationsCount: 0 //Poor useless state
     }
-    for (let i = 0; i < 4000; i++) { //Check _variables.scss for i
-      num.push(<Cell key={i} id={i} population={num} events={events} cols={this.state.cols}/>);
+  }
+  componentWillMount() {
+    for (let i = 0; i < cellNum; i++) { //Must match _variables.scss val for i
+      cellArr.push(<Cell key={i} id={i} population={cellArr} events={events} cols={colNum}/>);
     }
-
   }
   componentDidMount() {
     this.onClickRandom();
@@ -31,25 +31,38 @@ class App extends React.Component {
     timer = setInterval(() => {
       $(events).trigger('calculateNext');
       $(events).trigger('renderNext');
-    }, 100);
+      $(events).trigger('increment'); //generationsCount hotfix
+      /*
+      //this actually works
+      this.setState({
+        generationsCount: ++this.state.generationsCount
+      });
+      */
+    }, 500);
   }
   onClickPause() {
     clearInterval(timer);
   }
   onClickRandom() {
-    $(events).trigger('randomize');
+    $(events).trigger('randomize'); //I actually think I used this as a hotfix too but it was early
+    $(events).trigger('reset'); //generationsCount hotfix
     clearInterval(timer);
+    //    this.setState({generationsCount: 0}); //This line is breaking!
   }
   onClickClear() {
-    $(events).trigger('kill');
+    $(events).trigger('kill'); //I actually think I used this as a hotfix too but it was early
+    $(events).trigger('reset'); //generationsCount hotfix
     clearInterval(timer);
+    //    this.setState({generationsCount: 0}); //This line is breaking!
   }
+
   render() {
+    //Note that placement of Generations does affect whether the app works without the Generations hotfix
     return (
       <div>
-        <Field cells={this.state.cells}/>
+        <Field cells={cellArr}/>
         <Controls onClickStart={this.onClickStart.bind(this)} onClickPause={this.onClickPause.bind(this)} onClickRandom={this.onClickRandom.bind(this)} onClickClear={this.onClickClear.bind(this)}/>
-        <Generations generationsCount={this.state.generationsCount}/>
+        <Generations events={events}/>
       </div>
     )
   }
