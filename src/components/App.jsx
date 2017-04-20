@@ -26,6 +26,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     this.onClickRandom();
+    this.onClickStart();
   }
   onClickStart() {
     timer = setInterval(() => {
@@ -60,9 +61,9 @@ class App extends React.Component {
     //Note that placement of Generations does affect whether the app works without the Generations hotfix
     return (
       <div>
-        <Field cells={cellArr}/>
         <Controls onClickStart={this.onClickStart.bind(this)} onClickPause={this.onClickPause.bind(this)} onClickRandom={this.onClickRandom.bind(this)} onClickClear={this.onClickClear.bind(this)}/>
         <Generations events={events}/>
+        <Field cells={cellArr}/>
       </div>
     )
   }
