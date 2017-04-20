@@ -123,7 +123,7 @@ class Cell extends React.Component {
     this.setState({alive: this.state.nextState});
   }
   componentDidMount() {
-    this.props.population[this.props.id] = this; //This line doesn't seem to be possible. Log it to see why.
+    this.props.population[this.props.id] = this; //This is important but confusing.
     $(this.props.events).on("calculateNext", this.calculateNext.bind(this));
     $(this.props.events).on('renderNext', this.renderNext.bind(this));
     $(this.props.events).on('kill', this.kill.bind(this));
