@@ -4,6 +4,11 @@
 @import '_generations.scss';
 @import '_variables.scss';
 
+@font-face {
+  font-family: 'Raleway';
+  src: url('../font/Raleway/Raleway-Regular.ttf');
+}
+
 html body {
   background-color: $dark-general;
   font-family: 'Raleway', sans-serif;
