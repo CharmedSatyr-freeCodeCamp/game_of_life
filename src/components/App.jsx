@@ -20,8 +20,8 @@ class App extends React.Component {
     }
   }
   componentWillMount() {
-    for (let i = 0; i < cellNum; i++) { //Must match _variables.scss val for i
-      cellArr.push(<Cell key={i} id={i} population={cellArr} events={events} cols={colNum}/>);
+    for (let i = 0; i < cellNum; i++) {
+      cellArr.push(<Cell key={i} id={i} population={cellArr} events={events} cols={colNum}/>); //yes, population passes each cell the whole array it's a part of, including itself, as a prop. Putin wins.
     }
   }
   componentDidMount() {
