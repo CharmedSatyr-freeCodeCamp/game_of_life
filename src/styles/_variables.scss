@@ -16,7 +16,6 @@ $dark-general: #08080E;
 $cells-tall: 50;
 $cells-wide: 80;
 
-$cell-border: 1px solid $gridlines;
 $cell-side: 7px;
-$field-height: $cells-tall * ($cell-side + 1.334);
-$field-width: $cells-wide * ($cell-side + 1.334);
+$field-height: $cells-tall * $cell-side;
+$field-width: $cells-wide * $cell-side;

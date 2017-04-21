@@ -2,7 +2,7 @@
 
 .cell {
   background-color: $dead-cell;
-  border: $cell-border;
+  box-shadow: inset 0 0 1px $gridlines;
   height: $cell-side;
   width: $cell-side;
 }
