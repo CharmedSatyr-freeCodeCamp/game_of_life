@@ -1,13 +1,21 @@
 @import '_variables.scss';
 
 #field {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: $dead-cell;
   border: solid $dark-general 10px;
   border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  clear: both;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   height: $field-height;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: $field-width;
 }
