@@ -6,6 +6,12 @@
   height: $cell-side;
   width: $cell-side;
 }
+@media all and (min-width: 1080px) {
+  .cell {
+    height: $larger-cell-side;
+    width: $larger-cell-side;
+  }
+}
 
 .alive {
   @include accent-bg(0.1);

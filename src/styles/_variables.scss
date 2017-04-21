@@ -17,5 +17,10 @@ $cells-tall: 50;
 $cells-wide: 80;
 
 $cell-side: 7px;
+$larger-cell-side: 8px;
+
 $field-height: $cells-tall * $cell-side;
 $field-width: $cells-wide * $cell-side;
+
+$larger-field-height: $cells-tall * $larger-cell-side;
+$larger-field-width: $cells-wide * $larger-cell-side;
