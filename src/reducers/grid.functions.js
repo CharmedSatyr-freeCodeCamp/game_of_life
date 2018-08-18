@@ -1,5 +1,4 @@
 import * as c from '../constants/constants';
-import _ from 'lodash';
 
 // Reducer Functions
 // Create an array of objects with default cell properties
@@ -20,7 +19,7 @@ export const makeCells = (height = c.gridHeight, width = c.gridWidth) => {
 
 // Randomize the `alive` properties of objects in a given array of cells
 export const randomizeLife = arr => {
-  const clone = _.cloneDeep(arr);
+  const clone = [...arr];
   clone.forEach(cell => {
     cell.alive = Math.random() > c.probability ? true : false;
   });
@@ -114,10 +113,13 @@ const calculateNext = (idx, arr) => {
 
 // Advance objects in an array of cells by one generation based on neighbors' `alive` values
 export const advance = arr => {
-  const clone = _.cloneDeep(arr);
+  // If cloned objects reference objects in `arr`, the original `arr` will be modified below,
+  // which will result in improper cell/grid behavior
+  const deepClone = arr.map(c => Object.assign({}, c));
+
   arr.forEach((c, i) => {
     const nextStatus = calculateNext(i, arr);
-    clone[i].alive = nextStatus;
+    deepClone[i].alive = nextStatus;
   });
-  return clone;
+  return deepClone;
 };
