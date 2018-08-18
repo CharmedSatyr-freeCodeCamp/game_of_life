@@ -1,6 +1,6 @@
 // Store
 import { createStore } from 'redux';
-import { gridReducer } from './reducers/grid-reducer';
+import { gridReducer } from './reducers/grid';
 
 const store = createStore(gridReducer);
 

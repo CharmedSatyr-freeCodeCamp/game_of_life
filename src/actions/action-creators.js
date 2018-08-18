@@ -13,9 +13,8 @@ export const makeGrid = () => {
   };
 };
 
-export const nextGen = arr => {
+export const nextGen = () => {
   return {
-    cellData: arr,
     type: a.NEXT_GEN,
   };
 };

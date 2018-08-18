@@ -1,6 +1,6 @@
 // Grid Reducer
 import * as at from '../constants/action-types';
-import * as rf from './reducer-functions';
+import * as rf from './grid.functions';
 import _ from 'lodash';
 
 const initialState = {
@@ -18,12 +18,11 @@ export const gridReducer = (state = initialState, action) => {
         cellData: rf.randomizeLife(rf.makeCells()),
       });
     case at.NEXT_GEN:
-      const cellData = rf.advance(action.cellData);
       return Object.assign(
         {},
         {
           generation: state.generation + 1,
-          cellData,
+          cellData: rf.advance(state.cellData),
         }
       );
     case at.TOGGLE:

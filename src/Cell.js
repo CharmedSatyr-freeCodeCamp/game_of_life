@@ -24,12 +24,7 @@ export default class Cell extends Component {
           width: c.cellDimensions,
         }}
         onClick={this.toggle}
-      >
-        ({this.props.coordinates.x}, {this.props.coordinates.y})<br />
-        {this.props.index}
-        <br />
-        {this.props.alive.toString()}
-      </div>
+      />
     );
   }
 }

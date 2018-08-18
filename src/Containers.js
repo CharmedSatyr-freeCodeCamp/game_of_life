@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
   return {
     clear: () => dispatch(ac.clear()),
     makeGrid: () => dispatch(ac.makeGrid()),
-    nextGen: arr => dispatch(ac.nextGen(arr)),
+    nextGen: () => dispatch(ac.nextGen()),
     toggle: index => dispatch(ac.toggle(index)),
   };
 };
@@ -26,6 +26,6 @@ export const GridContainer = connect(
 )(Grid);
 
 export const ControlsContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Controls);
