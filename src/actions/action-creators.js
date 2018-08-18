@@ -1,4 +1,4 @@
-import * as a from './action-types';
+import * as a from '../constants/action-types';
 
 // Action Creators
 export const clear = () => {
@@ -13,8 +13,9 @@ export const makeGrid = () => {
   };
 };
 
-export const nextGen = () => {
+export const nextGen = arr => {
   return {
+    cellData: arr,
     type: a.NEXT_GEN,
   };
 };

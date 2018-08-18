@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import * as c from './constants';
 import PropTypes from 'prop-types';
+import * as c from './constants/constants';
 
 export default class Cell extends Component {
   constructor(props) {
@@ -14,15 +14,21 @@ export default class Cell extends Component {
     return (
       <div
         style={{
+          alignItems: 'center',
           backgroundColor: this.props.alive ? 'gold' : 'lightblue',
           boxShadow: '0 0 1px black',
+          display: 'flex',
           fontSize: 10,
           height: c.cellDimensions,
+          justifyContent: 'center',
           width: c.cellDimensions,
         }}
         onClick={this.toggle}
       >
+        ({this.props.coordinates.x}, {this.props.coordinates.y})<br />
         {this.props.index}
+        <br />
+        {this.props.alive.toString()}
       </div>
     );
   }

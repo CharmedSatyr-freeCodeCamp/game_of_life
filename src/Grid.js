@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as c from './constants';
 import Cell from './Cell';
+import * as c from './constants/constants';
 
 export default class Grid extends Component {
   componentDidMount() {

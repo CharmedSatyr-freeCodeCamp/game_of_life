@@ -47,3 +47,7 @@ describe('findW', () => {
     expect(rf.findW(4, arr, 3, 2)).toBe(5);
   });
 });
+
+describe('nw', () => {
+  it('should return the index of the cell to above and left of a given index if not at an edge', () => {});
+});

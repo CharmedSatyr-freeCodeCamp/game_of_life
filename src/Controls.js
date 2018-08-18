@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+let c;
 export default class Controls extends Component {
   constructor(props) {
     super(props);
@@ -10,12 +11,15 @@ export default class Controls extends Component {
   }
   clear() {
     this.props.clear();
+    clearInterval(c);
   }
   makeGrid() {
     this.props.makeGrid();
   }
   start() {
-    this.props.nextGen();
+    c = setInterval(() => {
+      this.props.nextGen(this.props.cellData);
+    }, 500);
   }
   render() {
     return (
@@ -30,6 +34,7 @@ export default class Controls extends Component {
 }
 
 Controls.propTypes = {
+  cellData: PropTypes.arrayOf(PropTypes.object.isRequired),
   clear: PropTypes.func.isRequired,
   makeGrid: PropTypes.func.isRequired,
   nextGen: PropTypes.func.isRequired,
