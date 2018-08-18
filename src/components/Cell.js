@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as c from './constants/constants';
+import * as c from '../constants/constants';
 
 export default class Cell extends Component {
   constructor(props) {

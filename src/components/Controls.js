@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as c from './constants/constants';
+import * as c from '../constants/constants';
 
 let duration;
 export default class Controls extends Component {

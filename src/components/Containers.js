@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Grid from './Grid';
 import Controls from './Controls';
-import * as ac from './actions/action-creators';
+import * as ac from '../actions/action-creators';
 
 // Containers
 const mapStateToProps = state => {
