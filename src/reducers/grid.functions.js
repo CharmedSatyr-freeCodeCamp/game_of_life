@@ -1,6 +1,6 @@
 import * as c from '../constants/constants';
 
-// Reducer Functions
+/*** MAKE GRID ***/
 // Create an array of objects with default cell properties
 export const makeCells = (height = c.gridHeight, width = c.gridWidth) => {
   const cells = [];
@@ -26,8 +26,10 @@ export const randomizeLife = arr => {
   return clone;
 };
 
+/*** NEXT GENERATION ***/
 // Count how many of a given cell's neighbors are alive
 export const neighborsAlive = (idx, arr) => {
+  // TODO: LOOPS: 0
   const isAlive = (x, y, array = arr) => {
     let xC = x,
       yC = y;
@@ -55,46 +57,32 @@ export const neighborsAlive = (idx, arr) => {
   let count = 0;
   const { x, y } = arr[idx].coordinates;
 
-  // NW
-  if (isAlive(x - 1, y - 1)) {
-    count++;
-  } // N
-  if (isAlive(x, y - 1)) {
-    count++;
-  }
-  // NE
-  if (isAlive(x + 1, y - 1)) {
-    count++;
-  }
-  // W
-  if (isAlive(x - 1, y)) {
-    count++;
-  }
-  //E
-  if (isAlive(x + 1, y)) {
-    count++;
-  }
-  // SW
-  if (isAlive(x - 1, y + 1)) {
-    count++;
-  }
-  // S
-  if (isAlive(x, y + 1)) {
-    count++;
-  }
-  // SE
-  if (isAlive(x + 1, y + 1)) {
-    count++;
-  }
+  const directions = [
+    [x - 1, y - 1], // NW
+    [x, y - 1], // N
+    [x + 1, y - 1], // NE
+    [x - 1, y], // W
+    [x + 1, y], // E
+    [x - 1, y + 1], // SW
+    [x, y + 1], // S
+    [x + 1, y + 1], // SE
+  ];
+  directions.forEach(direction => {
+    if (isAlive(...direction)) {
+      count++;
+    }
+  });
 
   return count;
 };
 
-// Calculate next
+// Calculate whether cell will be `alive` next generation
 const calculateNext = (idx, arr) => {
   const alive = arr[idx].alive;
   const count = neighborsAlive(idx, arr);
 
+  // TODO: LOOPS: 0
+  // John Conway's Rules
   if (alive && count < 2) {
     return false;
   }
@@ -115,8 +103,10 @@ const calculateNext = (idx, arr) => {
 export const advance = arr => {
   // If cloned objects reference objects in `arr`, the original `arr` will be modified below,
   // which will result in improper cell/grid behavior
+  // TODO: LOOPS: 1
   const deepClone = arr.map(c => Object.assign({}, c));
 
+  // TODO: LOOPS: 1
   arr.forEach((c, i) => {
     const nextStatus = calculateNext(i, arr);
     deepClone[i].alive = nextStatus;
