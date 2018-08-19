@@ -12,13 +12,15 @@ export default class Controls extends Component {
     this.stop = this.stop.bind(this);
   }
   clear() {
-    this.props.clear();
     clearInterval(duration);
+    this.props.clear();
   }
   makeGrid() {
+    clearInterval(duration);
     this.props.makeGrid();
   }
   start() {
+    clearInterval(duration);
     duration = setInterval(() => {
       this.props.nextGen();
     }, c.duration);
