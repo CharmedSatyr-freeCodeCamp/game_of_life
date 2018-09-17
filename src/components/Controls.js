@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as c from '../constants/constants';
 
-let duration;
 export default class Controls extends Component {
   constructor(props) {
     super(props);
@@ -12,21 +11,21 @@ export default class Controls extends Component {
     this.stop = this.stop.bind(this);
   }
   clear() {
-    clearInterval(duration);
+    clearInterval(this.duration);
     this.props.clear();
   }
   makeGrid() {
-    clearInterval(duration);
+    clearInterval(this.duration);
     this.props.makeGrid();
   }
   start() {
-    clearInterval(duration);
-    duration = setInterval(() => {
+    clearInterval(this.duration);
+    this.duration = setInterval(() => {
       this.props.nextGen();
     }, c.duration);
   }
   stop() {
-    clearInterval(duration);
+    clearInterval(this.duration);
   }
   render() {
     return (
