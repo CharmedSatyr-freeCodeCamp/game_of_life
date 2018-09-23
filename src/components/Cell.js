@@ -13,14 +13,9 @@ export default class Cell extends Component {
   render() {
     return (
       <div
+        className={`cell ${this.props.alive ? 'alive' : 'dead'}`}
         style={{
-          alignItems: 'center',
-          backgroundColor: this.props.alive ? 'gold' : 'lightblue',
-          boxShadow: '0 0 1px black',
-          display: 'flex',
-          fontSize: 10,
           height: c.cellDimensions,
-          justifyContent: 'center',
           width: c.cellDimensions,
         }}
         onClick={this.toggle}
