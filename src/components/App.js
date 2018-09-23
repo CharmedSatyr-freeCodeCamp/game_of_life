@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-
 import { ControlsContainer, GridContainer } from './Containers';
+import Header from './Header';
+import Footer from './Footer';
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>Game of Life</h1>
-        <ControlsContainer />
-        <GridContainer />
+        <Header />
+        <main>
+          <ControlsContainer />
+          <GridContainer />
+        </main>
+        <Footer />
       </div>
     );
   }
