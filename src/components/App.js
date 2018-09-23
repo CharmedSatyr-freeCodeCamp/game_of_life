@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ControlsContainer, GridContainer } from './Containers';
+import { ControlsContainer, GridContainer } from '../containers/Containers';
 import Header from './Header';
 import Footer from './Footer';
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Grid from './Grid';
-import Controls from './Controls';
+import Grid from '../components/Grid';
+import Controls from '../components/Controls';
 import * as ac from '../actions/action-creators';
 
 // Containers
