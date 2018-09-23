@@ -29,7 +29,6 @@ export const randomizeLife = arr => {
 /*** NEXT GENERATION ***/
 // Count how many of a given cell's neighbors are alive
 export const neighborsAlive = (idx, arr) => {
-  // TODO: LOOPS: 0
   const isAlive = (x, y, array = arr) => {
     let xC = x,
       yC = y;
@@ -81,7 +80,6 @@ const calculateNext = (idx, arr) => {
   const alive = arr[idx].alive;
   const count = neighborsAlive(idx, arr);
 
-  // TODO: LOOPS: 0
   // John Conway's Rules
   if (alive && count < 2) {
     return false;
