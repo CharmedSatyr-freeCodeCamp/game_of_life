@@ -6,7 +6,7 @@ import App from './components/App';
 import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
-import styles from './styles/styles.scss';
+import './styles/index.scss';
 
 ReactDOM.render(
   <Provider store={store}>
