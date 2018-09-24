@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import Generations from '../components/Generations';
 import Grid from '../components/Grid';
 import Controls from '../components/Controls';
 import * as ac from '../actions/action-creators';
@@ -19,6 +20,11 @@ const mapDispatchToProps = dispatch => {
     toggle: index => dispatch(ac.toggle(index)),
   };
 };
+
+export const GenerationsContainer = connect(
+  mapStateToProps,
+  null
+)(Generations);
 
 export const GridContainer = connect(
   mapStateToProps,

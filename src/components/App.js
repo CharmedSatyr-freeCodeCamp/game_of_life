@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ControlsContainer, GridContainer } from '../containers/Containers';
+import { ControlsContainer, GenerationsContainer, GridContainer } from '../containers/Containers';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -10,6 +10,7 @@ export default class App extends Component {
         <Header />
         <main>
           <ControlsContainer />
+          <GenerationsContainer />
           <GridContainer />
         </main>
         <Footer />

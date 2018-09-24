@@ -18,18 +18,13 @@ export default class Grid extends Component {
       />
     ));
     return (
-      <div>
-        <h1>{this.props.generation}</h1>
-        <div
-          style={{
-            boxShadow: '0 0 1px black',
-            display: 'flex',
-            flexWrap: 'wrap',
-            width: c.cellDimensions * c.gridWidth,
-          }}
-        >
-          {cells}
-        </div>
+      <div
+        className="grid"
+        style={{
+          width: c.cellDimensions * c.gridWidth,
+        }}
+      >
+        {cells}
       </div>
     );
   }
@@ -37,7 +32,6 @@ export default class Grid extends Component {
 
 Grid.propTypes = {
   cellData: PropTypes.arrayOf(PropTypes.object).isRequired, // Already testing object shapes in Cell PropTypes
-  generation: PropTypes.number.isRequired,
   makeGrid: PropTypes.func.isRequired,
   toggle: PropTypes.func.isRequired,
 };
