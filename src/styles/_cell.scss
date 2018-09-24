@@ -1,11 +1,12 @@
 .cell {
   box-shadow: inset 0 0 1px $gridlines;
-}
+  transition: all 0.2s ease;
 
-.alive {
-  background-color: $accent;
-}
+  &.alive {
+    background-color: $accent;
+  }
 
-.dead {
-  background-color: $dead-cell;
+  &.dead {
+    background-color: $dead-cell;
+  }
 }
