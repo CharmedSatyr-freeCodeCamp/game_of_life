@@ -16,9 +16,10 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 a {
-  color: $accent;
+  color: $primary;
   text-decoration: none;
 }
