@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ControlsContainer, GenerationsContainer, GridContainer } from '../containers/Containers';
 import Header from './Header';
 import Footer from './Footer';
+import Rules from './Rules';
 
 export default class App extends Component {
   render() {
@@ -9,9 +10,10 @@ export default class App extends Component {
       <div className="app">
         <Header />
         <main>
-          <ControlsContainer />
           <GenerationsContainer />
+          <ControlsContainer />
           <GridContainer />
+          <Rules />
         </main>
         <Footer />
       </div>
