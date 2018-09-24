@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as c from '../constants/constants';
 
+// Font Awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay, faRandom, faTimes } from '@fortawesome/free-solid-svg-icons';
+library.add(faPause, faPlay, faRandom, faTimes);
+
 export default class Controls extends Component {
   constructor(props) {
     super(props);
@@ -29,11 +35,23 @@ export default class Controls extends Component {
   }
   render() {
     return (
-      <div>
-        <button onClick={this.start}>Start</button>
-        <button onClick={this.stop}>Stop</button>
-        <button onClick={this.clear}>Clear</button>
-        <button onClick={this.makeGrid}>Randomize</button>
+      <div className="controls">
+        <button onClick={this.start}>
+          <FontAwesomeIcon icon="play" />
+          &nbsp;Start
+        </button>
+        <button onClick={this.stop}>
+          <FontAwesomeIcon icon="pause" />
+          &nbsp;Pause
+        </button>
+        <button onClick={this.clear}>
+          <FontAwesomeIcon icon="times" />
+          &nbsp;Clear
+        </button>
+        <button onClick={this.makeGrid}>
+          <FontAwesomeIcon icon="random" />
+          &nbsp;Random
+        </button>
       </div>
     );
   }

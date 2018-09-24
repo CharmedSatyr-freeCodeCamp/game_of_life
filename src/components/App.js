@@ -11,8 +11,8 @@ export default class App extends Component {
         <Header />
         <main>
           <GenerationsContainer />
-          <ControlsContainer />
           <GridContainer />
+          <ControlsContainer />
           <Rules />
         </main>
         <Footer />
