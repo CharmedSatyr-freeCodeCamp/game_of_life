@@ -1,6 +1,7 @@
 .cell {
   border-radius: 1px;
   box-shadow: inset 0 0 1px $gridlines;
+  cursor: pointer;
   transition: all 0.2s ease;
 
   &.alive {
@@ -9,5 +10,9 @@
 
   &.dead {
     background-color: $dead;
+
+    &:hover {
+      background-color: $gridlines;
+    }
   }
 }

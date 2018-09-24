@@ -1,25 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 @import '_variables';
+@import '_global';
 @import '_header';
 @import '_app';
 @import '_generations';
 @import '_cell';
 @import '_grid';
+@import '_rules';
 @import '_footer';
-
-html,
-body {
-  background-color: $dark;
-  font-family: 'Raleway', sans-serif;
-  height: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  user-select: none;
-}
-
-a {
-  color: $primary;
-  text-decoration: none;
-}
