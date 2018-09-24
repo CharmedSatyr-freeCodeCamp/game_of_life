@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => (
   <footer>
-    <h5>
+    <p>
       <a
         href="https://github.com/CharmedSatyr/game_of_life"
         rel="noopener noreferrer"
@@ -18,7 +18,7 @@ const Footer = () => (
       >
         GNU Public License v3.0
       </a>
-    </h5>
+    </p>
   </footer>
 );
 
