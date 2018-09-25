@@ -13,7 +13,17 @@ const Rules = () => (
         Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
       </li>
     </ol>
-    <p>Learn more here.</p>
+    <p>
+      Learn more{' '}
+      <a
+        href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        here
+      </a>
+      .
+    </p>
   </div>
 );
 
