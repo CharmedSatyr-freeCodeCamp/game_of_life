@@ -1,7 +1,5 @@
-// Grid Reducer
 import * as at from '../constants/action-types';
 import * as rf from './grid.functions';
-import _ from 'lodash';
 
 const initialState = {
   generation: 0,
@@ -26,10 +24,8 @@ export const gridReducer = (state = initialState, action) => {
         }
       );
     case at.TOGGLE:
-      const clone = _.cloneDeep(state.cellData);
-      state.cellData[action.index].alive
-        ? (clone[action.index].alive = false)
-        : (clone[action.index].alive = true);
+      const clone = [...state.cellData];
+      clone[action.index].alive = !state.cellData[action.index].alive;
       return Object.assign({}, state, { cellData: clone });
     default:
       return state;
