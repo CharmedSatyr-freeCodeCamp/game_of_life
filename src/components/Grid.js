@@ -8,13 +8,13 @@ export default class Grid extends Component {
     this.props.makeGrid();
   }
   render() {
-    const cells = this.props.cellData.map(c => (
+    const cells = this.props.cellData.map((c, i) => (
       <Cell
-        key={c.index}
+        key={i}
         alive={c.alive}
         coordinates={c.coordinates}
         toggle={this.props.toggle}
-        index={c.index}
+        index={i}
       />
     ));
     return (

@@ -4,14 +4,11 @@ import * as c from '../constants/constants';
 // Create an array of objects with default cell properties
 export const makeCells = (height = c.gridHeight, width = c.gridWidth) => {
   const cells = [];
-  let index = 0;
   for (let i = 0; i < height; i++) {
     let y = i;
     for (let j = 0; j < width; j++) {
       let x = j;
-      const coordinates = { x, y };
-      cells.push({ alive: false, coordinates, index });
-      index++;
+      cells.push({ alive: false, x, y });
     }
   }
   return cells;
@@ -54,7 +51,7 @@ export const neighborsAlive = (idx, arr) => {
   };
 
   let count = 0;
-  const { x, y } = arr[idx].coordinates;
+  const { x, y } = arr[idx];
 
   const directions = [
     [x - 1, y - 1], // NW
