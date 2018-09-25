@@ -9,13 +9,7 @@ export default class Grid extends Component {
   }
   render() {
     const cells = this.props.cellData.map((c, i) => (
-      <Cell
-        key={i}
-        alive={c.alive}
-        coordinates={c.coordinates}
-        toggle={this.props.toggle}
-        index={i}
-      />
+      <Cell key={i} alive={c} toggle={this.props.toggle} index={i} />
     ));
     return (
       <div
@@ -31,7 +25,7 @@ export default class Grid extends Component {
 }
 
 Grid.propTypes = {
-  cellData: PropTypes.arrayOf(PropTypes.object).isRequired, // Already testing object shapes in Cell PropTypes
+  cellData: PropTypes.arrayOf(PropTypes.bool).isRequired,
   makeGrid: PropTypes.func.isRequired,
   toggle: PropTypes.func.isRequired,
 };

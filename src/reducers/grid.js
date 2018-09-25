@@ -25,7 +25,7 @@ export const gridReducer = (state = initialState, action) => {
       );
     case at.TOGGLE:
       const clone = [...state.cellData];
-      clone[action.index].alive = !state.cellData[action.index].alive;
+      clone[action.index] = !state.cellData[action.index];
       return Object.assign({}, state, { cellData: clone });
     default:
       return state;

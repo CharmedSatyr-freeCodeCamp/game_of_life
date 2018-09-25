@@ -1,34 +1,44 @@
 import * as c from '../constants/constants';
 
 /*** MAKE GRID ***/
-// Create an array of objects with default cell properties
+// Create a default array of `false` Booleans
 export const makeCells = (height = c.gridHeight, width = c.gridWidth) => {
-  const cells = [];
-  for (let i = 0; i < height; i++) {
-    let y = i;
-    for (let j = 0; j < width; j++) {
-      let x = j;
-      cells.push({ alive: false, x, y });
-    }
-  }
-  return cells;
+  const num = height * width;
+  return Array(num).fill(false);
 };
 
-// Randomize the `alive` properties of objects in a given array of cells
+// Return random Boolean values for a given array length
+// A 'living' cell is `true`; a 'dead' cell is `false`
 export const randomizeLife = arr => {
-  const clone = [...arr];
-  clone.forEach(cell => {
-    cell.alive = Math.random() > c.probability ? true : false;
-  });
-  return clone;
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    const val = Math.random() > c.probability ? true : false;
+    newArr.push(val);
+  }
+  return newArr;
 };
 
 /*** NEXT GENERATION ***/
+// Calculate x and y coordinates of cells based on index
+export const coordinatesCalc = index => {
+  if (typeof index !== 'number') {
+    throw new Error('coordinatesCalc: Argument must be a number');
+  }
+
+  const x = index % c.gridWidth;
+  const y = Math.floor(index / c.gridWidth);
+  return [x, y];
+};
+
 // Count how many of a given cell's neighbors are alive
-export const neighborsAlive = (idx, arr) => {
+const neighborsAlive = (idx, arr) => {
+  // isAlive(?) returns a Boolean answer
   const isAlive = (x, y, array = arr) => {
+    // Default values for neighbors' x and y coordinates
     let xC = x,
       yC = y;
+
+    // Make grid toroidal (fix nonexistent cell coordinates)
     // Horizontal wrapping
     if (x === -1) {
       xC = c.gridWidth - 1;
@@ -47,12 +57,13 @@ export const neighborsAlive = (idx, arr) => {
 
     // Avoid a loop by inferring index
     const index = xC + yC * c.gridWidth;
-    return arr[index].alive; // Boolean
+    return arr[index]; // Boolean
   };
 
-  let count = 0;
-  const { x, y } = arr[idx];
+  // Convert the cells index to x/y coordinate value
+  const [x, y] = coordinatesCalc(idx);
 
+  // Coordinates of adjacent cells
   const directions = [
     [x - 1, y - 1], // NW
     [x, y - 1], // N
@@ -63,18 +74,22 @@ export const neighborsAlive = (idx, arr) => {
     [x, y + 1], // S
     [x + 1, y + 1], // SE
   ];
+
+  // Count living, adjacent cells
+  let count = 0;
   directions.forEach(direction => {
     if (isAlive(...direction)) {
       count++;
     }
   });
 
+  // Return the total
   return count;
 };
 
 // Calculate whether cell will be `alive` next generation
 const calculateNext = (idx, arr) => {
-  const alive = arr[idx].alive;
+  const alive = arr[idx];
   const count = neighborsAlive(idx, arr);
 
   // John Conway's Rules
@@ -95,16 +110,4 @@ const calculateNext = (idx, arr) => {
 };
 
 // Advance objects in an array of cells by one generation based on neighbors' `alive` values
-export const advance = arr => {
-  // If cloned objects reference objects in `arr`, the original `arr` will be modified below,
-  // which will result in improper cell/grid behavior
-  // TODO: LOOPS: 1
-  const deepClone = arr.map(c => Object.assign({}, c));
-
-  // TODO: LOOPS: 1
-  arr.forEach((c, i) => {
-    const nextStatus = calculateNext(i, arr);
-    deepClone[i].alive = nextStatus;
-  });
-  return deepClone;
-};
+export const advance = arr => arr.map((c, i) => calculateNext(i, arr));
