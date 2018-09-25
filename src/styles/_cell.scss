@@ -6,13 +6,17 @@
 
   &.alive {
     background-color: $primary;
+
+    &:hover {
+      box-shadow: inset 2px 2px $secondary, inset -2px -2px $secondary;
+    }
   }
 
   &.dead {
     background-color: $dead;
 
     &:hover {
-      background-color: $light;
+      box-shadow: inset 2px 2px $light, inset -2px -2px $light;
     }
   }
 }
