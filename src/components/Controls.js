@@ -70,7 +70,7 @@ export default class Controls extends Component {
       <div className="controls">
         {/* STEP */}
         <button
-          className={selected !== 'random' && selected !== 'pause' && 'disabled'}
+          className={selected !== 'random' && selected !== 'pause' ? 'disabled' : ''}
           onClick={this.step}
         >
           <FontAwesomeIcon icon="step-forward" />
@@ -79,8 +79,9 @@ export default class Controls extends Component {
 
         {/* PLAY */}
         <button
-          className={`${selected === 'play' && 'selected disabled'} ${selected === 'clear' &&
-            'disabled'}`}
+          className={`${selected === 'play' ? 'selected disabled' : ''} ${
+            selected === 'clear' ? 'disabled' : ''
+          }`}
           onClick={this.play}
         >
           <FontAwesomeIcon icon="play" />
@@ -89,8 +90,9 @@ export default class Controls extends Component {
 
         {/* PAUSE */}
         <button
-          className={`${selected === 'pause' && 'selected disabled'} ${selected !== 'play' &&
-            'disabled'}`}
+          className={`${selected === 'pause' ? 'selected disabled' : ''} ${
+            selected !== 'play' ? 'disabled' : ''
+          }`}
           onClick={this.pause}
         >
           <FontAwesomeIcon icon="pause" />
@@ -98,13 +100,13 @@ export default class Controls extends Component {
         </button>
 
         {/* CLEAR */}
-        <button className={selected === 'clear' && 'selected disabled'} onClick={this.clear}>
+        <button className={selected === 'clear' ? 'selected disabled' : ''} onClick={this.clear}>
           <FontAwesomeIcon icon="times" />
           &nbsp;Clear
         </button>
 
         {/* RANDOM */}
-        <button className={selected === 'random' && 'selected'} onClick={this.random}>
+        <button className={selected === 'random' ? 'selected' : ''} onClick={this.random}>
           <FontAwesomeIcon icon="random" />
           &nbsp;Random
         </button>
