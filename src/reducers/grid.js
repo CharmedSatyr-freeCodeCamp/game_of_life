@@ -6,7 +6,7 @@ const initialState = {
   cellData: [],
 };
 
-export const gridReducer = (state = initialState, action) => {
+const grid = (state = initialState, action) => {
   const newState = Object.assign({}, state);
 
   switch (action.type) {
@@ -32,3 +32,5 @@ export const gridReducer = (state = initialState, action) => {
   }
   return newState;
 };
+
+export default grid;
