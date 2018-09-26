@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as c from '../constants/constants';
 
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -14,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 library.add(faPause, faPlay, faRandom, faStepForward, faTimes);
 
+// Controls
 export default class Controls extends Component {
   constructor(props) {
     super(props);
@@ -27,32 +27,28 @@ export default class Controls extends Component {
   }
   clear() {
     if (this.state.selected !== 'clear') {
-      clearInterval(this.duration);
+      cancelAnimationFrame(this.requestID);
       this.props.clear();
       this.setState({ selected: 'clear' });
     }
   }
   pause() {
     if (
-      this.state.selected !== 'pause' &&
       this.state.selected !== 'clear' &&
+      this.state.selected !== 'pause' &&
       this.state.selected !== 'random'
     ) {
-      clearInterval(this.duration);
+      cancelAnimationFrame(this.requestID);
       this.setState({ selected: 'pause' });
     }
   }
   play() {
-    if (this.state.selected !== 'play') {
-      clearInterval(this.duration);
-      this.duration = setInterval(() => {
-        this.props.nextGen();
-      }, c.duration);
-      this.setState({ selected: 'play' });
-    }
+    this.props.nextGen();
+    this.requestID = requestAnimationFrame(this.play);
+    this.setState({ selected: 'play' });
   }
   random() {
-    clearInterval(this.duration);
+    cancelAnimationFrame(this.requestID);
     this.props.makeGrid();
     this.setState({ selected: 'random' });
   }
@@ -77,7 +73,7 @@ export default class Controls extends Component {
         {/* PLAY */}
         <button
           className={`play ${selected === 'play' ? 'selected disabled' : ''}`}
-          onClick={this.play}
+          onClick={selected !== 'play' ? this.play : null}
         >
           <FontAwesomeIcon icon="play" />
           &nbsp;Play
