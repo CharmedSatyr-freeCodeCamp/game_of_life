@@ -2,21 +2,12 @@ import * as c from '../constants/constants';
 
 /*** MAKE GRID ***/
 // Create a default array of `false` Booleans
-export const makeCells = (height = c.gridHeight, width = c.gridWidth) => {
-  const num = height * width;
-  return Array(num).fill(false);
-};
+export const clearGrid = (height = c.gridHeight, width = c.gridWidth) =>
+  Array(height * width).fill(false);
 
-// Return random Boolean values for a given array length
+// Replace some of the `false` Booleans with `true`
 // A 'living' cell is `true`; a 'dead' cell is `false`
-export const randomizeLife = arr => {
-  const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    const val = Math.random() > c.probability ? true : false;
-    newArr.push(val);
-  }
-  return newArr;
-};
+export const populateGrid = arr => arr.map(() => Math.random() > c.probability);
 
 /*** NEXT GENERATION ***/
 // Calculate x and y coordinates of cells based on index
@@ -32,7 +23,7 @@ export const coordinatesCalc = index => {
 
 // Count how many of a given cell's neighbors are alive
 const neighborsAlive = (idx, arr) => {
-  // isAlive(?) returns a Boolean answer
+  // isAlive returns a Boolean
   const isAlive = (x, y, array = arr) => {
     // Default values for neighbors' x and y coordinates
     let xC = x,
@@ -110,4 +101,4 @@ const calculateNext = (idx, arr) => {
 };
 
 // Advance objects in an array of cells by one generation based on neighbors' `alive` values
-export const advance = arr => arr.map((c, i) => calculateNext(i, arr));
+export const nextGen = arr => arr.map((c, i) => calculateNext(i, arr));
