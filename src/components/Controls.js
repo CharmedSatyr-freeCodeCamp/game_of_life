@@ -18,9 +18,9 @@ export default class Controls extends Component {
   constructor(props) {
     super(props);
     this.clear = this.clear.bind(this);
-    this.random = this.random.bind(this);
-    this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
+    this.play = this.play.bind(this);
+    this.random = this.random.bind(this);
     this.step = this.step.bind(this);
 
     this.state = { selected: null };
@@ -69,25 +69,36 @@ export default class Controls extends Component {
     return (
       <div className="controls">
         {/* STEP */}
-        <button onClick={this.step}>
+        <button
+          className={selected !== 'random' && selected !== 'pause' && 'disabled'}
+          onClick={this.step}
+        >
           <FontAwesomeIcon icon="step-forward" />
           &nbsp;Step
         </button>
 
         {/* PLAY */}
-        <button className={selected === 'play' && 'selected'} onClick={this.play}>
+        <button
+          className={`${selected === 'play' && 'selected disabled'} ${selected === 'clear' &&
+            'disabled'}`}
+          onClick={this.play}
+        >
           <FontAwesomeIcon icon="play" />
           &nbsp;Play
         </button>
 
         {/* PAUSE */}
-        <button className={selected === 'pause' && 'selected'} onClick={this.pause}>
+        <button
+          className={`${selected === 'pause' && 'selected disabled'} ${selected !== 'play' &&
+            'disabled'}`}
+          onClick={this.pause}
+        >
           <FontAwesomeIcon icon="pause" />
           &nbsp;Pause
         </button>
 
         {/* CLEAR */}
-        <button className={selected === 'clear' && 'selected'} onClick={this.clear}>
+        <button className={selected === 'clear' && 'selected disabled'} onClick={this.clear}>
           <FontAwesomeIcon icon="times" />
           &nbsp;Clear
         </button>
