@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import { ControlsContainer, GenerationsContainer, GridContainer } from '../containers/Containers';
+
 import Header from './Header';
-import Footer from './Footer';
+import Generations from './Generations';
+import Grid from './Grid';
+import Controls from './Controls';
 import Rules from './Rules';
+import Footer from './Footer';
 
 export default class App extends Component {
   render() {
+    const { generation, cellData, clear, makeGrid, nextGen, toggle } = this.props;
+
     return (
       <div className="app">
         <Header />
         <main>
-          <GenerationsContainer />
-          <GridContainer />
-          <ControlsContainer />
+          <Generations generation={generation} />
+          <Grid cellData={cellData} makeGrid={makeGrid} />
+          <Controls clear={clear} makeGrid={makeGrid} nextGen={nextGen} toggle={toggle} />
           <Rules />
         </main>
         <Footer />
