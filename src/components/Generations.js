@@ -9,8 +9,8 @@ const Generations = ({ generation }) => (
   </div>
 );
 
+export default Generations;
+
 Generations.propTypes = {
   generation: PropTypes.number.isRequired,
 };
-
-export default Generations;
