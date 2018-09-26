@@ -6,9 +6,16 @@
     color: $dark;
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-    height: 30px;
     margin: 0 4px;
-    padding: 6px;
-    cursor: pointer;
+    padding: 7px;
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+
+    &.selected {
+      color: $light;
+      background: $dark;
+    }
   }
 }
