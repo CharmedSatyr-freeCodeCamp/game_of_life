@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Header from './Header';
 import Generations from './Generations';
@@ -25,3 +26,12 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  cellData: PropTypes.arrayOf(PropTypes.bool).isRequired,
+  clear: PropTypes.func.isRequired,
+  generation: PropTypes.number.isRequired,
+  makeGrid: PropTypes.func.isRequired,
+  nextGen: PropTypes.func.isRequired,
+  toggle: PropTypes.func.isRequired,
+};
