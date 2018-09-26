@@ -26,20 +26,30 @@ export default class Controls extends Component {
     this.state = { selected: null };
   }
   clear() {
-    clearInterval(this.duration);
-    this.props.clear();
-    this.setState({ selected: 'clear' });
+    if (this.state.selected !== 'clear') {
+      clearInterval(this.duration);
+      this.props.clear();
+      this.setState({ selected: 'clear' });
+    }
   }
   pause() {
-    clearInterval(this.duration);
-    this.setState({ selected: 'pause' });
+    if (
+      this.state.selected !== 'pause' &&
+      this.state.selected !== 'clear' &&
+      this.state.selected !== 'random'
+    ) {
+      clearInterval(this.duration);
+      this.setState({ selected: 'pause' });
+    }
   }
   play() {
-    clearInterval(this.duration);
-    this.duration = setInterval(() => {
-      this.props.nextGen();
-    }, c.duration);
-    this.setState({ selected: 'play' });
+    if (this.state.selected !== 'clear' && this.state.selected !== 'play') {
+      clearInterval(this.duration);
+      this.duration = setInterval(() => {
+        this.props.nextGen();
+      }, c.duration);
+      this.setState({ selected: 'play' });
+    }
   }
   random() {
     clearInterval(this.duration);
@@ -47,32 +57,42 @@ export default class Controls extends Component {
     this.setState({ selected: 'random' });
   }
   step() {
-    this.props.nextGen();
+    if (this.state.selected !== 'clear' && this.state.selected !== 'play') {
+      this.props.nextGen();
+    }
+  }
+  componentDidMount() {
+    this.play();
   }
   render() {
     const { selected } = this.state;
     return (
       <div className="controls">
+        {/* STEP */}
         <button onClick={this.step}>
           <FontAwesomeIcon icon="step-forward" />
           &nbsp;Step
         </button>
 
+        {/* PLAY */}
         <button className={selected === 'play' && 'selected'} onClick={this.play}>
           <FontAwesomeIcon icon="play" />
-          &nbsp;Start
+          &nbsp;Play
         </button>
 
+        {/* PAUSE */}
         <button className={selected === 'pause' && 'selected'} onClick={this.pause}>
           <FontAwesomeIcon icon="pause" />
           &nbsp;Pause
         </button>
 
+        {/* CLEAR */}
         <button className={selected === 'clear' && 'selected'} onClick={this.clear}>
           <FontAwesomeIcon icon="times" />
           &nbsp;Clear
         </button>
 
+        {/* RANDOM */}
         <button className={selected === 'random' && 'selected'} onClick={this.random}>
           <FontAwesomeIcon icon="random" />
           &nbsp;Random
