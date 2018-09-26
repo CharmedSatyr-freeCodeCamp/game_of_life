@@ -15,7 +15,7 @@ export default class Grid extends Component {
       <div
         className="grid"
         style={{
-          width: c.cellDimensions * c.gridWidth,
+          width: c.cellSide * c.gridWidth,
         }}
       >
         {cells}

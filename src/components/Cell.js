@@ -15,8 +15,8 @@ export default class Cell extends Component {
       <div
         className={`cell ${this.props.alive ? 'alive' : 'dead'}`}
         style={{
-          height: c.cellDimensions,
-          width: c.cellDimensions,
+          height: c.cellSide,
+          width: c.cellSide,
         }}
         onClick={this.toggle}
       />
