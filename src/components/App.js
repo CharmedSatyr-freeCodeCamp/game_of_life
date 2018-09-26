@@ -10,15 +10,15 @@ import Footer from './Footer';
 
 export default class App extends Component {
   render() {
-    const { generation, cellData, clear, makeGrid, nextGen, toggle } = this.props;
+    const { cellData, clear, generation, makeGrid, nextGen, toggle } = this.props;
 
     return (
       <div className="app">
         <Header />
         <main>
           <Generations generation={generation} />
-          <Grid cellData={cellData} makeGrid={makeGrid} />
-          <Controls clear={clear} makeGrid={makeGrid} nextGen={nextGen} toggle={toggle} />
+          <Grid cellData={cellData} makeGrid={makeGrid} toggle={toggle} />
+          <Controls clear={clear} makeGrid={makeGrid} nextGen={nextGen} />
           <Rules />
         </main>
         <Footer />
