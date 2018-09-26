@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from '../components/App';
+import Game from '../components/Game';
 import * as ac from '../actions/action-creators';
 
 // Containers
@@ -15,9 +15,9 @@ const mapDispatchToProps = dispatch => ({
   toggle: index => dispatch(ac.toggle(index)),
 });
 
-const Wrapper = connect(
+const GameWrapper = connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(Game);
 
-export default Wrapper;
+export default GameWrapper;
