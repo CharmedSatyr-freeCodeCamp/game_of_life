@@ -8,8 +8,10 @@ import Footer from './Footer';
 const App = () => (
   <div className="app">
     <Header />
-    <GameWrapper />
-    <Rules />
+    <main>
+      <Rules />
+      <GameWrapper />
+    </main>
     <Footer />
   </div>
 );
