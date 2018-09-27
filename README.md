@@ -1,4 +1,4 @@
-# **The Game of Life (React/Redux)**
+# **The Game of Life**
 ### **"Build the Game of Life"** is a [freeCodeCamp project](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-the-game-of-life/)
 ----
 
