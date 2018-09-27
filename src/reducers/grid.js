@@ -1,36 +1,21 @@
 import * as at from '../constants/action-types';
 import * as u from './grid.utils';
 
-const initialState = {
-  generation: 0,
-  cellData: [],
-};
-
-const grid = (state = initialState, action) => {
-  const newState = Object.assign({}, state);
-
+const grid = (state = [], action) => {
   switch (action.type) {
     case at.CLEAR:
-      newState.cellData = u.clearGrid();
-      newState.generation = 0;
-      break;
+      return u.clearGrid();
     case at.MAKE_GRID:
-      newState.cellData = u.populateGrid(u.clearGrid());
-      newState.generation = 0;
-      break;
+      return u.populateGrid(u.clearGrid());
     case at.NEXT_GEN:
-      newState.cellData = u.nextGen(state.cellData);
-      newState.generation = state.generation + 1;
-      break;
+      return u.nextGen(state);
     case at.TOGGLE:
-      const clone = [...state.cellData];
-      clone[action.index] = !state.cellData[action.index];
-      newState.cellData = clone;
-      break;
+      const clone = [...state];
+      clone[action.index] = !state[action.index];
+      return clone;
     default:
       return state;
   }
-  return newState;
 };
 
 export default grid;

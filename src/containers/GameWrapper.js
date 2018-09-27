@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import Game from '../components/Game';
 import * as ac from '../actions/action-creators';
+
+import Game from '../components/Game';
 
 // Containers
 const mapStateToProps = state => ({
   generation: state.generation,
-  cellData: state.cellData,
+  cellData: state.grid,
 });
 
 const mapDispatchToProps = dispatch => ({

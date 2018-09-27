@@ -1,6 +1,7 @@
 // Store
 import { createStore } from 'redux';
-import grid from './reducers/grid';
+import reducer from './reducers/index';
 
-const store = createStore(grid);
+const store = createStore(reducer);
+
 export default store;
