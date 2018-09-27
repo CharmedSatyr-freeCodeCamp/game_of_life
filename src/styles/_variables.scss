@@ -19,5 +19,5 @@ $visible-border: $minimal-border; // 1px solid $light;
 /* Dimensions */
 // Should match JS constants
 $cellSide: 20px;
-$gridHeight: 20;
-$gridWidth: 30;
+$gridHeight: 20 * $cellSide;
+$gridWidth: 30 * $cellSide;

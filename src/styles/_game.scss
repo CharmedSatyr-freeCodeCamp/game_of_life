@@ -4,8 +4,11 @@
   flex-direction: column;
   justify-content: center;
   order: 2;
+}
 
-  @media screen and (max-width: 720px) {
-    order: 1;
-  }
+.backup {
+  color: $light;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
 }

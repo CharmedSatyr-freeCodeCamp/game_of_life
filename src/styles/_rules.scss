@@ -12,11 +12,6 @@
   padding: 60px;
   width: 15 * $cellSide;
 
-  @media screen and (max-height: 720px) {
-    height: auto;
-    width: auto;
-  }
-
   h2 {
     color: $primary;
   }

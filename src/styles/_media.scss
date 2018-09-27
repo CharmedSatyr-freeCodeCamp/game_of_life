@@ -1,0 +1,30 @@
+// Display on < 1080 screens
+@media screen and (max-width: 1079px) {
+  main {
+    flex-direction: column;
+  }
+  .rules {
+    height: auto;
+    height: auto;
+  }
+
+  .game {
+    order: 1;
+  }
+}
+
+// Display on screens narrower than the grid
+@media screen and (max-width: $gridWidth) {
+  // Don't display the grid!
+  .game {
+    display: none;
+  }
+}
+
+// Display on screens wider than the grid
+@media screen and (min-width: $gridWidth) {
+  // Don't display the backup text
+  .backup {
+    display: none;
+  }
+}

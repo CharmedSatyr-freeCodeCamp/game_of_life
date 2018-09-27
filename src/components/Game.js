@@ -6,11 +6,16 @@ import Grid from './Grid';
 import Controls from './Controls';
 
 const Game = props => (
-  <div className="game">
-    <Generations generation={props.generation} />
-    <Grid cellData={props.cellData} makeGrid={props.makeGrid} toggle={props.toggle} />
-    <Controls clear={props.clear} makeGrid={props.makeGrid} nextGen={props.nextGen} />
-  </div>
+  <span>
+    <div className="game">
+      <Generations generation={props.generation} />
+      <Grid cellData={props.cellData} makeGrid={props.makeGrid} toggle={props.toggle} />
+      <Controls clear={props.clear} makeGrid={props.makeGrid} nextGen={props.nextGen} />
+    </div>
+    <p className="backup">
+      For an optimal experience, please view this application on a wider screen.
+    </p>
+  </span>
 );
 
 export default Game;
