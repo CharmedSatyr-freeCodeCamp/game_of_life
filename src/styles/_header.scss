@@ -1,5 +1,9 @@
 header {
+  background: $dark;
+  border-bottom: $minimal-border;
+  padding: 10px auto;
   text-align: center;
+  width: 100%;
 
   h1 {
     color: $primary;

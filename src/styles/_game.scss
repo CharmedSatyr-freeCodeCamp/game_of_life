@@ -1,0 +1,11 @@
+.game {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  order: 2;
+
+  @media screen and (max-width: 720px) {
+    order: 1;
+  }
+}

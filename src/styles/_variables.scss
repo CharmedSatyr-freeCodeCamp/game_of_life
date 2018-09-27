@@ -2,7 +2,7 @@
 // Accents
 $primary: #fbf700; // yellow
 $secondary: #ea3838; // red
-$tertiary: #a3bdc9; // blue
+$tertiary: #8db4c6; // blue
 
 $green: #53be53;
 
@@ -10,3 +10,14 @@ $green: #53be53;
 $dark: #08080e;
 $dead: #24242a;
 $light: #cccbc9;
+
+// Borders
+$minimal-border: 1px solid darken($light, 65%);
+$thick-border: $minimal-border; // 2px solid $light;
+$visible-border: $minimal-border; // 1px solid $light;
+
+/* Dimensions */
+// Should match JS constants
+$cellSide: 20px;
+$gridHeight: 20;
+$gridWidth: 30;

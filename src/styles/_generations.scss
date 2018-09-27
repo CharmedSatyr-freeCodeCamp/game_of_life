@@ -1,5 +1,13 @@
 .generations {
+  background: $dark;
+  border-top: $visible-border;
+  border-left: $visible-border;
+  border-right: $visible-border;
+  border-radius: 4px 4px 0 0;
   color: $light;
+  margin-bottom: 0;
+  text-align: center;
+  width: $cellSide * 30;
 }
 
 .num {

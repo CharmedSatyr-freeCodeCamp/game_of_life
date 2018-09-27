@@ -1,3 +1,23 @@
 .rules {
+  align-items: center;
+  background-color: $dark;
+  border: $thick-border;
+  border-radius: 100%;
   color: $light;
+  display: flex;
+  flex-direction: column;
+  height: 15 * $cellSide;
+  justify-content: center;
+  margin: 50px;
+  padding: 60px;
+  width: 15 * $cellSide;
+
+  @media screen and (max-height: 720px) {
+    height: auto;
+    width: auto;
+  }
+
+  h2 {
+    color: $primary;
+  }
 }
