@@ -8,7 +8,7 @@
 ----
 ### Technologies
 
-* React (via Create-React-App)
+* React (via Create React App)
 * Redux
 * SCSS
 
