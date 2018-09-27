@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
+
+import cellData from './cellData';
 import generation from './generation';
-import grid from './grid';
 
 export default combineReducers({
-  grid,
+  cellData,
   generation,
 });

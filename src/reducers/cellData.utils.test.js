@@ -1,4 +1,4 @@
-import { coordinatesCalc } from './grid.functions';
+import { coordinatesCalc } from './cellData.utils';
 import * as c from '../constants/constants';
 
 describe('coordinatesCalc', () => {

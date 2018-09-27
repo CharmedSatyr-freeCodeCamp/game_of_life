@@ -6,7 +6,7 @@ import Game from '../components/Game';
 // Containers
 const mapStateToProps = state => ({
   generation: state.generation,
-  cellData: state.grid,
+  cellData: state.cellData,
 });
 
 const mapDispatchToProps = dispatch => ({

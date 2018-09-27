@@ -2,12 +2,12 @@ import * as c from '../constants/constants';
 
 /*** MAKE GRID ***/
 // Create a default array of `false` Booleans
-export const clearGrid = (height = c.gridHeight, width = c.gridWidth) =>
+export const clearCells = (height = c.gridHeight, width = c.gridWidth) =>
   Array(height * width).fill(false);
 
 // Replace some of the `false` Booleans with `true`
 // A 'living' cell is `true`; a 'dead' cell is `false`
-export const populateGrid = arr => arr.map(() => Math.random() > c.probability);
+export const populateCells = arr => arr.map(() => Math.random() > c.probability);
 
 /*** NEXT GENERATION ***/
 // Calculate x and y coordinates of cells based on index
@@ -100,5 +100,5 @@ const calculateNext = (idx, arr) => {
   return alive;
 };
 
-// Advance objects in an array of cells by one generation based on neighbors' `alive` values
+// Advance cells in the array by one generation based on neighbors' `alive` values
 export const nextGen = arr => arr.map((c, i) => calculateNext(i, arr));

@@ -1,12 +1,12 @@
 import * as at from '../constants/action-types';
-import * as u from './grid.utils';
+import * as u from './cellData.utils';
 
-const grid = (state = [], action) => {
+const cellData = (state = [], action) => {
   switch (action.type) {
     case at.CLEAR:
-      return u.clearGrid();
+      return u.clearCells();
     case at.MAKE_GRID:
-      return u.populateGrid(u.clearGrid());
+      return u.populateCells(u.clearCells());
     case at.NEXT_GEN:
       return u.nextGen(state);
     case at.TOGGLE:
@@ -18,4 +18,4 @@ const grid = (state = [], action) => {
   }
 };
 
-export default grid;
+export default cellData;
