@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.06ac52b4.chunk.css",
-    "main.js": "/static/js/main.f414db27.chunk.js",
-    "main.js.map": "/static/js/main.f414db27.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.c5541365.js",
-    "runtime~main.js.map": "/static/js/runtime~main.c5541365.js.map",
-    "static/js/2.94161c25.chunk.js": "/static/js/2.94161c25.chunk.js",
-    "static/js/2.94161c25.chunk.js.map": "/static/js/2.94161c25.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.595af387772e29ffb6010572c99c0f11.js": "/precache-manifest.595af387772e29ffb6010572c99c0f11.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.06ac52b4.chunk.css.map": "/static/css/main.06ac52b4.chunk.css.map",
-    "static/media/index.scss": "/static/media/Raleway-Regular.bdb6e756.woff2"
+    "main.css": "/game_of_life/static/css/main.ab4d42a7.chunk.css",
+    "main.js": "/game_of_life/static/js/main.2e950ac7.chunk.js",
+    "main.js.map": "/game_of_life/static/js/main.2e950ac7.chunk.js.map",
+    "runtime~main.js": "/game_of_life/static/js/runtime~main.0e19efdf.js",
+    "runtime~main.js.map": "/game_of_life/static/js/runtime~main.0e19efdf.js.map",
+    "static/js/2.94161c25.chunk.js": "/game_of_life/static/js/2.94161c25.chunk.js",
+    "static/js/2.94161c25.chunk.js.map": "/game_of_life/static/js/2.94161c25.chunk.js.map",
+    "index.html": "/game_of_life/index.html",
+    "precache-manifest.5012476ac35d5cd62bb198f9a5fba38c.js": "/game_of_life/precache-manifest.5012476ac35d5cd62bb198f9a5fba38c.js",
+    "service-worker.js": "/game_of_life/service-worker.js",
+    "static/css/main.ab4d42a7.chunk.css.map": "/game_of_life/static/css/main.ab4d42a7.chunk.css.map",
+    "static/media/index.scss": "/game_of_life/static/media/Raleway-Regular.bdb6e756.woff2"
   }
 }
