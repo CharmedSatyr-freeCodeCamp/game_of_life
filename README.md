@@ -1,4 +1,7 @@
 # **The Game of Life**
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/CharmedSatyr/game_of_life.svg)](https://greenkeeper.io/)
+
 ### **"Build the Game of Life"** is a [freeCodeCamp project](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-the-game-of-life/)
 ----
 
