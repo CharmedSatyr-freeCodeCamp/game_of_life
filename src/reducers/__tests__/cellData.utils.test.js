@@ -1,5 +1,5 @@
-import { coordinatesCalc } from './cellData.utils';
-import * as c from '../constants/constants';
+import { coordinatesCalc } from '../cellData.utils';
+import * as c from '../../constants/constants';
 
 describe('coordinatesCalc', () => {
   it('should throw an error for non-number arguments', () => {
