@@ -1,12 +1,12 @@
 # **The Game of Life**
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/CharmedSatyr/game_of_life.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/CharmedSatyr/game_of_life.svg?branch=master)](https://travis-ci.com/CharmedSatyr/game_of_life) [![Greenkeeper badge](https://badges.greenkeeper.io/CharmedSatyr/game_of_life.svg)](https://greenkeeper.io/) 
 
 ### **"Build the Game of Life"** is a [freeCodeCamp project](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-the-game-of-life/)
 ----
 
-**Initially Completed:** April 20, 2017  
-**Updated:** September 27, 2018
+**Initially Completed:** April 20, 2017
+**Last Updated:** June 9, 2019
 
 ----
 ### Technologies
