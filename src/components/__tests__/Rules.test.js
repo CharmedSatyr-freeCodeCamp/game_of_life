@@ -2,13 +2,13 @@ import React from 'react';
 import { configure, /* mount,*/ shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Header from '../Header';
+import Rules from '../Rules';
 
 configure({ adapter: new Adapter() });
 
-describe('<Header /> component', () => {
+describe('<Rules /> component', () => {
   it('renders without crashing', () => {
-    const header = shallow(<Header />);
-    expect(header.exists()).toBeTruthy();
+    const rules = shallow(<Rules />);
+    expect(rules.exists()).toBeTruthy();
   });
 });
