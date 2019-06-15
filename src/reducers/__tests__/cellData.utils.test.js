@@ -100,8 +100,36 @@ describe('calculateNext', () => {
     expect(u.calculateNext(idx, arr)).toBeFalsy();
   });
 
-  it('should return `true` if the cell has 2 or 3 living neighbors', () => {
-    // Mock up a grid
+  it('should return `true` if the cell is alive and has 2 living neighbors', () => {
+    const arr = u.clearCells();
+    arr[0] = true;
+    arr[1] = true;
+    arr[arr.length / c.gridHeight] = true;
+    const idx = arr.length / c.gridHeight;
+
+    expect(u.calculateNext(idx, arr)).toBeTruthy();
+  });
+
+  it('should return `false` if the cell is dead and has 2 living neighbors', () => {
+    const arr = u.clearCells();
+    arr[0] = true;
+    arr[1] = true;
+    const idx = arr.length / c.gridHeight;
+    expect(u.calculateNext(idx, arr)).toBeFalsy();
+  });
+
+  it('should return `true` if the cell is alive and has 3 living neighbors', () => {
+    const arr = u.clearCells();
+    arr[0] = true;
+    arr[1] = true;
+    arr[arr.length / c.gridHeight] = true;
+    arr[arr.length / c.gridHeight + 1] = true;
+    const idx = arr.length / c.gridHeight + 1;
+
+    expect(u.calculateNext(idx, arr)).toBeTruthy();
+  });
+
+  it('should return `true` if the cell is dead and has 3 living neighbors', () => {
     const arr = u.clearCells();
     arr[0] = true;
     arr[1] = true;
@@ -112,7 +140,6 @@ describe('calculateNext', () => {
   });
 
   it('should return `false` if the cell has more than 3 living neighbors', () => {
-    // Mock up a grid
     const grid = u.clearCells();
     grid[0] = true;
     grid[1] = true;

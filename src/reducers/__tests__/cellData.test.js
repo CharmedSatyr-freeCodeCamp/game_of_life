@@ -37,6 +37,12 @@ describe('`cellData` reducer', () => {
     expect(populate).toHaveBeenCalledWith(clear());
   });
 
+  it('should return the result of `nextGen(state)` on a `NEXT_GEN` action', () => {
+    const state = [boolean(), boolean(), boolean()];
+    const action = { type: at.NEXT_GEN };
+    expect(cellData(state, action)).toEqual(u.nextGen(state));
+  });
+
   it('should return state with the indicated index at the opposite value on a `TOGGLE` action', () => {
     const zero = boolean();
     const one = boolean();
