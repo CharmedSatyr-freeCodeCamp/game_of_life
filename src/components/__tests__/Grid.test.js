@@ -1,12 +1,10 @@
 import React from 'react';
 import { random } from 'faker';
-import { configure, /* mount,*/ shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import Grid from '../Grid';
 
 const { boolean } = random;
-configure({ adapter: new Adapter() });
 
 describe('<Grid /> component', () => {
   it('renders without crashing', () => {

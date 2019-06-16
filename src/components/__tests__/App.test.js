@@ -1,13 +1,10 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import App from '../App';
 import Header from '../Header';
 import Game from '../Game';
 import Footer from '../Footer';
-
-configure({ adapter: new Adapter() });
 
 let app;
 beforeAll(() => {
