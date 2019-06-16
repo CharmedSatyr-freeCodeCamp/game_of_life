@@ -1,6 +1,6 @@
 import React from 'react';
 import { random } from 'faker';
-import { configure, shallow, mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
 
