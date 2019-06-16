@@ -43,13 +43,10 @@
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false && cat ./coverage/lcov.info | codacy-coverage --token cd13ebef55154a0c912dd6975d2fc548",
     "eject": "react-scripts eject",
-    "lint": "eslint '**/*.js'",
+    "lint": "eslint 'src/**/*.js'",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "jest": {
     "collectCoverageFrom": [
