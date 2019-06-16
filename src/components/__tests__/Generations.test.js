@@ -10,8 +10,9 @@ const { number } = random;
 configure({ adapter: new Adapter() });
 
 describe('<Generations /> component', () => {
+  const props = { generation: number() };
+
   it('renders without crashing', () => {
-    const props = { generation: number() };
     const generations = shallow(<Generations {...props} />);
     expect(generations.exists()).toBeTruthy();
   });

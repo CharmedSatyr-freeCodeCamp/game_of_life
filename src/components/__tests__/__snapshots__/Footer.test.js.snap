@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> component renders correctly 1`] = `
+<footer>
+  <p>
+    <a
+      href="https://github.com/CharmedSatyr/game_of_life"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Source code
+    </a>
+     
+    available under the
+     
+    <a
+      href="https://github.com/CharmedSatyr/game_of_life/blob/master/LICENSE"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      GNU Public License v3.0
+    </a>
+  </p>
+</footer>
+`;

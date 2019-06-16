@@ -2,6 +2,7 @@ import React from 'react';
 import { random } from 'faker';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 
 import Cell from '../Cell';
 
@@ -41,5 +42,10 @@ describe('<Cell /> component', () => {
       cell.simulate('click');
       expect(props.toggle).toHaveBeenCalledWith(props.index);
     });
+  });
+
+  it('renders correctly', () => {
+    const tree = renderer.create(<Cell {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

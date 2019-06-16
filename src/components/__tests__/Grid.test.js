@@ -15,6 +15,7 @@ describe('<Grid /> component', () => {
       makeGrid: jest.fn(),
       toggle: jest.fn(),
     };
+
     const grid = shallow(<Grid {...props} />);
     expect(grid.exists()).toBeTruthy();
   });

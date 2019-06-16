@@ -1,6 +1,7 @@
 import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 
 import Controls from '../Controls';
 
@@ -20,6 +21,11 @@ describe('<Controls /> component', () => {
 
   it('renders without crashing', () => {
     expect(controls.exists()).toBeTruthy();
+  });
+
+  it('renders correctly', () => {
+    const tree = renderer.create(<Controls {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   describe('`Clear` button', () => {
@@ -63,13 +69,13 @@ describe('<Controls /> component', () => {
   describe('`Play` button', () => {
     it('runs `nextGen` when clicked', () => {
       play.simulate('click');
-      // Previously called in `componentDidMount` and `Pause` test
-      expect(props.nextGen).toHaveBeenCalledTimes(3);
+      // Previously called in `renderer`, `componentDidMount` and `Pause` test
+      expect(props.nextGen).toHaveBeenCalledTimes(4);
     });
 
     it('assigns a recursive `requestAnimationFrame` to the component as a `requestID`', () => {
-      // Previously called in `componentDidMount` and `Pause` test
-      expect(raf).toHaveBeenCalledTimes(3);
+      // Previously called in `renderer`, `componentDidMount` and `Pause` test
+      expect(raf).toHaveBeenCalledTimes(4);
     });
 
     it('sets state to `play`', () => {
@@ -94,17 +100,17 @@ describe('<Controls /> component', () => {
 
   describe('`Step` button', () => {
     it('does nothing if the state is `play`', () => {
-      // Calls nextGen again (3x in `Play` test -> 4x)
+      // Calls nextGen again (4x above -> 5x)
       play.simulate('click');
-      // Does not call nextGen again (expect still 4x)
+      // Does not call nextGen again (expect still 5x)
       step.simulate('click');
-      expect(props.nextGen).toHaveBeenCalledTimes(4);
+      expect(props.nextGen).toHaveBeenCalledTimes(5);
     });
 
     it('runs `nextGen` when clicked', () => {
       pause.simulate('click');
       step.simulate('click');
-      expect(props.nextGen).toHaveBeenCalledTimes(5);
+      expect(props.nextGen).toHaveBeenCalledTimes(6);
     });
   });
 });

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cell /> component renders correctly 1`] = `
+<div
+  className="cell dead"
+  onClick={[Function]}
+  style={
+    Object {
+      "height": 20,
+      "width": 20,
+    }
+  }
+/>
+`;
