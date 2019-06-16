@@ -11,28 +11,25 @@ import {
   faStepForward,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
+
 library.add(faPause, faPlay, faRandom, faStepForward, faTimes);
 
 // Controls
 export default class Controls extends Component {
   constructor(props) {
     super(props);
-    this.clear = this.clear.bind(this);
-    this.pause = this.pause.bind(this);
-    this.play = this.play.bind(this);
-    this.random = this.random.bind(this);
-    this.step = this.step.bind(this);
-
     this.state = { selected: null };
   }
-  clear() {
+
+  clear = () => {
     if (this.state.selected !== 'clear') {
       cancelAnimationFrame(this.requestID);
       this.props.clear();
       this.setState({ selected: 'clear' });
     }
-  }
-  pause() {
+  };
+
+  pause = () => {
     if (
       this.state.selected !== 'clear' &&
       this.state.selected !== 'pause' &&
@@ -41,25 +38,30 @@ export default class Controls extends Component {
       cancelAnimationFrame(this.requestID);
       this.setState({ selected: 'pause' });
     }
-  }
-  play() {
+  };
+
+  play = () => {
     this.props.nextGen();
     this.requestID = requestAnimationFrame(this.play);
     this.setState({ selected: 'play' });
-  }
-  random() {
+  };
+
+  random = () => {
     cancelAnimationFrame(this.requestID);
     this.props.makeGrid();
     this.setState({ selected: 'random' });
-  }
-  step() {
+  };
+
+  step = () => {
     if (this.state.selected !== 'play') {
       this.props.nextGen();
     }
-  }
+  };
+
   componentDidMount() {
     this.play();
   }
+
   render() {
     const { selected } = this.state;
     return (

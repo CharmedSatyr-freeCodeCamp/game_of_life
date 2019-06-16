@@ -21,36 +21,36 @@ export const coordinatesCalc = index => {
   return [x, y];
 };
 
+// isAlive returns a Boolean
+export const isAlive = (x, y, arr) => {
+  // Default values for neighbors' x and y coordinates
+  let xC = x,
+    yC = y;
+
+  // Make grid toroidal (fix nonexistent cell coordinates)
+  // Horizontal wrapping
+  if (x === -1) {
+    xC = c.gridWidth - 1;
+  }
+  if (x === c.gridWidth) {
+    xC = 0;
+  }
+
+  // Vertical wrapping
+  if (y === -1) {
+    yC = c.gridHeight - 1;
+  }
+  if (y === c.gridHeight) {
+    yC = 0;
+  }
+
+  // Avoid a loop by inferring index
+  const index = xC + yC * c.gridWidth;
+  return arr[index]; // Boolean
+};
+
 // Count how many of a given cell's neighbors are alive
-const neighborsAlive = (idx, arr) => {
-  // isAlive returns a Boolean
-  const isAlive = (x, y, array = arr) => {
-    // Default values for neighbors' x and y coordinates
-    let xC = x,
-      yC = y;
-
-    // Make grid toroidal (fix nonexistent cell coordinates)
-    // Horizontal wrapping
-    if (x === -1) {
-      xC = c.gridWidth - 1;
-    }
-    if (x === c.gridWidth) {
-      xC = 0;
-    }
-
-    // Vertical wrapping
-    if (y === -1) {
-      yC = c.gridHeight - 1;
-    }
-    if (y === c.gridHeight) {
-      yC = 0;
-    }
-
-    // Avoid a loop by inferring index
-    const index = xC + yC * c.gridWidth;
-    return arr[index]; // Boolean
-  };
-
+export const neighborsAlive = (idx, arr) => {
   // Convert the cells index to x/y coordinate value
   const [x, y] = coordinatesCalc(idx);
 
@@ -69,7 +69,7 @@ const neighborsAlive = (idx, arr) => {
   // Count living, adjacent cells
   let count = 0;
   directions.forEach(direction => {
-    if (isAlive(...direction)) {
+    if (isAlive(...direction, arr)) {
       count++;
     }
   });
@@ -79,7 +79,7 @@ const neighborsAlive = (idx, arr) => {
 };
 
 // Calculate whether cell will be `alive` next generation
-const calculateNext = (idx, arr) => {
+export const calculateNext = (idx, arr) => {
   const alive = arr[idx];
   const count = neighborsAlive(idx, arr);
 
