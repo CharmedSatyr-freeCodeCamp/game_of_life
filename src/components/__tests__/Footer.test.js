@@ -1,7 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { configure, /* mount,*/ shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Footer from '../Footer';
+
+configure({ adapter: new Adapter() });
 
 describe('<Footer /> component', () => {
   it('renders without crashing', () => {

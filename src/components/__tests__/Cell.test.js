@@ -1,10 +1,12 @@
 import React from 'react';
 import { random } from 'faker';
-import { shallow } from 'enzyme';
+import { configure, /* mount,*/ shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Cell from '../Cell';
 
 const { boolean, number } = random;
+configure({ adapter: new Adapter() });
 
 describe('<Cell /> component', () => {
   const props = { index: number(), toggle: jest.fn() };

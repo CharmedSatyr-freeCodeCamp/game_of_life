@@ -1,7 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 import Controls from '../Controls';
+
+configure({ adapter: new Adapter() });
 
 const raf = jest.spyOn(window, 'requestAnimationFrame');
 const caf = jest.spyOn(window, 'cancelAnimationFrame');

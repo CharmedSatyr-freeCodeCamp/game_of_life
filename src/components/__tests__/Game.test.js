@@ -1,7 +1,8 @@
 import React from 'react';
 import { random } from 'faker';
-import { mount } from 'enzyme';
+import { configure, shallow, mount } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
+import Adapter from 'enzyme-adapter-react-16';
 
 import * as a from '../../actions/action-creators';
 import Game from '../Game';
@@ -10,6 +11,7 @@ import Grid from '../Grid';
 import Controls from '../Controls';
 
 const { boolean, number } = random;
+configure({ adapter: new Adapter() });
 
 const initialState = {
   cellData: [boolean(), boolean(), boolean()],
