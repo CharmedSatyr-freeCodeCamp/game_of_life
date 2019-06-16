@@ -1,22 +1,14 @@
 import React from 'react';
-import { configure, /* mount,*/ shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureMockStore from 'redux-mock-store';
 
 import App from '../App';
 import Header from '../Header';
-import GameWrapper from '../../containers/GameWrapper';
+import Game from '../Game';
 import Footer from '../Footer';
 
 configure({ adapter: new Adapter() });
-
-// Containers
-// const mapDispatchToProps = dispatch => ({
-//   clear: () => dispatch(ac.clear()),
-//   makeGrid: () => dispatch(ac.makeGrid()),
-//   nextGen: () => dispatch(ac.nextGen()),
-//   toggle: index => dispatch(ac.toggle(index)),
-// });
 
 const initialState = {
   generation: 0,
@@ -26,9 +18,9 @@ const initialState = {
 const mockStore = configureMockStore();
 let store;
 let app;
-beforeEach(() => {
-  app = shallow(<App />);
+beforeAll(() => {
   store = mockStore(initialState);
+  app = shallow(<App />);
 });
 
 describe('<App />', () => {
@@ -41,9 +33,9 @@ describe('<App />', () => {
     expect(app.find(header)).toHaveLength(1);
   });
 
-  xit('contains an instance of <GameWrapper />', () => {
-    const gameWrapper = shallow(<GameWrapper store={store} />);
-    expect(app.find(gameWrapper)).toHaveLength(1);
+  xit('contains an instance of <Game />', () => {
+    const game = shallow(<Game store={store} />);
+    expect(app.find(game)).toHaveLength(1);
   });
 
   xit('contains an instance of <Footer />', () => {
