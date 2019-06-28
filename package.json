@@ -2,17 +2,17 @@
   "name": "game_of_life",
   "author": "CharmedSatyr <z@charmed.tech>",
   "version": "0.1.0",
-  "homepage": "https://charmedsatyr.github.io/game_of_life",
+  "homepage": "https://charmedsatyr-freecodecamp.github.io/game_of_life",
   "license": "GPL-3.0-or-later",
   "description": "Conway's Game of Life in React/Redux",
   "keywords": [],
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/charmedsatyr/game_of_life.git"
+    "url": "git+https://github.com/CharmedSatyr-freeCodeCamp/game_of_life.git"
   },
   "bugs": {
-    "url": "https://github.com/charmedsatyr/game_of_life/issues"
+    "url": "https://github.com/CharmedSatyr-freeCodeCamp/game_of_life/issues"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
