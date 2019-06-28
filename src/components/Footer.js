@@ -4,7 +4,7 @@ const Footer = () => (
   <footer>
     <p>
       <a
-        href="https://github.com/CharmedSatyr/game_of_life"
+        href="https://github.com/CharmedSatyr-freeCodeCamp/game_of_life"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -12,7 +12,7 @@ const Footer = () => (
       </a>{' '}
       available under the{' '}
       <a
-        href="https://github.com/CharmedSatyr/game_of_life/blob/master/LICENSE"
+        href="https://github.com/CharmedSatyr-freeCodeCamp/game_of_life/blob/master/LICENSE"
         rel="noopener noreferrer"
         target="_blank"
       >
