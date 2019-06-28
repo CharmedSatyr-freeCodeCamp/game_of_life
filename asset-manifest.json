@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/game_of_life/static/css/main.ab4d42a7.chunk.css",
-    "main.js": "/game_of_life/static/js/main.f75d1794.chunk.js",
-    "main.js.map": "/game_of_life/static/js/main.f75d1794.chunk.js.map",
+    "main.js": "/game_of_life/static/js/main.5ed0f0ce.chunk.js",
+    "main.js.map": "/game_of_life/static/js/main.5ed0f0ce.chunk.js.map",
     "runtime~main.js": "/game_of_life/static/js/runtime~main.0e19efdf.js",
     "runtime~main.js.map": "/game_of_life/static/js/runtime~main.0e19efdf.js.map",
     "static/js/2.3e688647.chunk.js": "/game_of_life/static/js/2.3e688647.chunk.js",
     "static/js/2.3e688647.chunk.js.map": "/game_of_life/static/js/2.3e688647.chunk.js.map",
     "index.html": "/game_of_life/index.html",
-    "precache-manifest.d9db2ae52e0592315f73cbfa830a18e1.js": "/game_of_life/precache-manifest.d9db2ae52e0592315f73cbfa830a18e1.js",
+    "precache-manifest.96d5ffc115ed2901408f5482d49129a6.js": "/game_of_life/precache-manifest.96d5ffc115ed2901408f5482d49129a6.js",
     "service-worker.js": "/game_of_life/service-worker.js",
     "static/css/main.ab4d42a7.chunk.css.map": "/game_of_life/static/css/main.ab4d42a7.chunk.css.map",
     "static/media/index.scss": "/game_of_life/static/media/Raleway-Regular.bdb6e756.woff2"
