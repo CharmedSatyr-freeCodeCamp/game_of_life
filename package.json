@@ -15,7 +15,7 @@
     "url": "https://github.com/CharmedSatyr-freeCodeCamp/game_of_life/issues"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "react": "^16.8.6",
